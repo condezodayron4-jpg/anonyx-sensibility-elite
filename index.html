@@ -209,7 +209,6 @@
             margin-top: 10px;
         }
 
-        /* MODALES */
         .modal-overlay {
             display: none;
             position: fixed;
@@ -260,7 +259,6 @@
             transition: 0.2s;
         }
 
-        /* RESULTADOS Y GUÍA COMPLETA */
         .results-box {
             display: none;
             margin-top: 20px;
@@ -272,7 +270,6 @@
         .res-bar { height: 7px; background: #080a10; border-radius: 5px; overflow: hidden; margin-bottom: 10px; }
         .res-fill { height: 100%; background: var(--orange-vip); width: 0%; transition: width 0.8s ease; }
 
-        /* GUÍAS EXTENDIDAS VIP */
         .mod-guide {
             background: #080a10;
             border: 1px solid var(--orange-vip);
@@ -300,7 +297,6 @@
 
 <div class="main-card">
 
-    <!-- HEADER DIAMANTES -->
     <div class="user-header">
         <div class="user-info">
             <i class="fa-solid fa-shield-halved user-icon"></i>
@@ -308,11 +304,10 @@
         </div>
         <div class="credit-badge" onclick="openStore()" title="Comprar Créditos">
             <i class="fa-solid fa-gem" style="color:var(--blue-cyan);"></i>
-            <span class="credit-amount" id="userCredits">5</span>
+            <span class="credit-amount" id="userCredits">0</span>
         </div>
     </div>
 
-    <!-- MODOS -->
     <div class="mode-tabs">
         <button class="mode-btn active" id="tabNorm" onclick="selectMode('normal', 5)">
             <span><i class="fa-solid fa-shield"></i> NORMAL</span>
@@ -328,12 +323,10 @@
         </button>
     </div>
 
-    <!-- BANNER DISPOSITIVO -->
     <div class="smart-banner">
         <i class="fa-solid fa-mobile-screen-button"></i> Dispositivo: <span id="detectedDev" style="color:var(--gold-vip);">Ninguno (Selecciona abajo)</span>
     </div>
 
-    <!-- BUSCADOR MODELO -->
     <div class="section-label"><i class="fa-solid fa-magnifying-glass"></i> MARCA Y MODELO DEL CELULAR:</div>
     <div class="search-container">
         <i class="fa-solid fa-magnifying-glass search-icon"></i>
@@ -341,7 +334,6 @@
     </div>
     <div class="models-list" id="modelsList"></div>
 
-    <!-- CONFIGURACIÓN -->
     <div class="section-label"><i class="fa-solid fa-gear"></i> CONFIGURACIÓN DE DPI</div>
     <div class="btn-grid-2">
         <div class="opt-card active" id="dpiOff" onclick="selectDpi('off')">
@@ -388,7 +380,6 @@
 
     <button class="btn-generate" onclick="handleGenerate()"><i class="fa-solid fa-bolt"></i> GENERAR CALIBRACIÓN TODO ROJO</button>
 
-    <!-- RESULTADOS Y GUÍA TÉCNICA -->
     <div class="results-box" id="resBox">
         <p style="color:var(--orange-vip); font-weight:bold; text-align:center; margin-bottom:10px; font-family:'Orbitron';" id="resTitle">CALIBRACIÓN 100% TODO ROJO</p>
         
@@ -536,8 +527,16 @@
         "iPhone 8 Plus", "iPhone X", "iPhone XR", "iPhone 11", "iPhone 12", "iPhone 13 Pro Max", "iPhone 14 Pro Max", "iPhone 15 Pro Max"
     ];
 
-    let credits = 5;
-    document.getElementById('userCredits').innerText = credits;
+    // Cargar créditos guardados en localStorage. Si no existe, inicia con 5 de regalo.
+    let credits = localStorage.getItem('anonyx_credits') !== null ? parseInt(localStorage.getItem('anonyx_credits')) : 5;
+    
+    function updateCreditsDisplay() {
+        document.getElementById('userCredits').innerText = credits;
+        localStorage.setItem('anonyx_credits', credits.toString()); // Guarda en almacenamiento interno
+    }
+    
+    // Inicializar visualización al cargar página
+    updateCreditsDisplay();
 
     let selectedMode = 'normal';
     let modeCost = 5;
@@ -619,7 +618,7 @@
 
     function claimDiamonds() {
         credits += pendingClaimAmount;
-        document.getElementById('userCredits').innerText = credits;
+        updateCreditsDisplay(); // Guarda saldo actualizado permanentemente
 
         delete systemPins[pendingClaimKey];
         localStorage.setItem('anonyx_pins', JSON.stringify(systemPins));
@@ -644,13 +643,12 @@
         }
 
         credits -= modeCost;
-        document.getElementById('userCredits').innerText = credits;
+        updateCreditsDisplay(); // Actualiza y guarda saldo retenido tras la compra
 
         // Semilla basada en el nombre del celular
         let seed = 0;
         for(let i=0; i<selectedDevice.length; i++) seed += selectedDevice.charCodeAt(i);
 
-        // Sensibilidades calibradas pro
         let g = 194 + (seed % 6);
         let r = 197 + (seed % 4);
         let m2 = 189 + (seed % 9);
@@ -658,7 +656,6 @@
         let awm = Math.floor(45 + (seed % 35));
         let cam360 = 100;
 
-        // Botón optimizado
         let bSize = selectedBtnSize === 'small' ? "41%" : (selectedBtnSize === 'medium' ? "47%" : "52%");
 
         document.getElementById('vG').innerText = g;
@@ -676,7 +673,6 @@
         document.getElementById('bA').style.width = (awm / 200 * 100) + '%';
         document.getElementById('bC').style.width = (cam360 / 200 * 100) + '%';
 
-        // DPI exacto segun dispositivo
         let exactDpiValue = 540 + (seed % 180);
         let nativeDpiTip = selectedDevice.includes("iPhone") ? "Sensibilidad de Puntero al 100% (iOS Nativo)" : "Escala de Animación en 0.5x (Aceleración Nativa)";
 
@@ -711,7 +707,6 @@
                 <div class="mod-step">• <span>Distancia Corta:</span> Alza en forma de "J" suave hacia la derecha para enganchar el primer tiro en la cabeza.</div>
             `;
         } else {
-            // MODO INSPIRADA 1000 DIAMANTES (ULTRA VIP COMPLETO)
             document.getElementById('resTitle').innerText = "⚡ CALIBRACIÓN TOP GLOBAL INSPIRADA (100% TODO ROJO) ⚡";
             guideHTML = `
                 <h4><i class="fa-solid fa-bolt"></i> REGEDIT Y GUÍA PASO A PASO ULTIMATE (${selectedDevice.toUpperCase()})</h4>
