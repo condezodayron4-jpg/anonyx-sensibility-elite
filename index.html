@@ -3,22 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AnonyX VIP System - Generador Ultra Sensi</title>
+    <title>AnonyX System - Optimizer & Mod Injector</title>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
         :root {
-            --bg-main: #0b0d14;
-            --panel-bg: #121624;
-            --panel-border: #1c2338;
-            --orange-vip: #ff5500;
-            --orange-glow: rgba(255, 85, 0, 0.35);
-            --blue-cyan: #00d2ff;
-            --gold-vip: #ffd700;
+            --bg-main: #07090e;
+            --panel-bg: #0e121e;
+            --panel-border: #1a2238;
+            --orange-vip: #ff3300;
+            --orange-glow: rgba(255, 51, 0, 0.4);
+            --blue-cyan: #00e5ff;
+            --gold-vip: #ffcc00;
             --green-success: #00ff66;
             --text-primary: #ffffff;
-            --text-sub: #8d9bb0;
+            --text-sub: #7e8b9b;
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Rajdhani', sans-serif; user-select: none; }
@@ -40,29 +40,30 @@
             border: 1px solid var(--panel-border);
             border-radius: 20px;
             padding: 20px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+            box-shadow: 0 10px 35px rgba(0, 0, 0, 0.9);
+            position: relative;
         }
 
         .user-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: #080a10;
-            padding: 10px 15px;
+            background: #05070c;
+            padding: 12px 15px;
             border-radius: 12px;
             border: 1px solid var(--panel-border);
             margin-bottom: 15px;
         }
 
         .user-info { display: flex; align-items: center; gap: 8px; }
-        .user-icon { color: var(--orange-vip); font-size: 1.2rem; }
-        .user-name { font-weight: 700; font-size: 0.9rem; }
+        .user-icon { color: var(--orange-vip); font-size: 1.3rem; }
+        .user-name { font-weight: 700; font-size: 0.95rem; letter-spacing: 0.5px; }
 
         .credit-badge {
             display: flex;
             align-items: center;
             gap: 8px;
-            background: rgba(0, 210, 255, 0.1);
+            background: rgba(0, 229, 255, 0.1);
             border: 1px solid var(--blue-cyan);
             border-radius: 10px;
             padding: 5px 12px;
@@ -77,7 +78,7 @@
         .mode-btn {
             flex: 1;
             padding: 10px 2px;
-            background: #080a10;
+            background: #05070c;
             border: 1px solid var(--panel-border);
             color: var(--text-sub);
             border-radius: 10px;
@@ -95,14 +96,14 @@
         .mode-btn.active {
             border-color: var(--orange-vip);
             color: var(--orange-vip);
-            background: rgba(255, 85, 0, 0.1);
-            box-shadow: 0 0 8px var(--orange-glow);
+            background: rgba(255, 51, 0, 0.12);
+            box-shadow: 0 0 10px var(--orange-glow);
         }
 
         .mode-cost { font-size: 0.68rem; color: var(--gold-vip); }
 
         .smart-banner {
-            background: rgba(0, 210, 255, 0.05);
+            background: rgba(0, 229, 255, 0.05);
             border: 1px solid var(--blue-cyan);
             border-radius: 12px;
             padding: 12px;
@@ -118,7 +119,7 @@
         .search-input {
             width: 100%;
             padding: 12px 12px 12px 38px;
-            background: #080a10;
+            background: #05070c;
             border: 1px solid var(--panel-border);
             color: #fff;
             border-radius: 10px;
@@ -139,7 +140,7 @@
         .models-list {
             max-height: 140px;
             overflow-y: auto;
-            background: #080a10;
+            background: #05070c;
             border: 1px solid var(--panel-border);
             border-radius: 10px;
             margin-bottom: 15px;
@@ -153,7 +154,7 @@
             border-bottom: 1px solid rgba(255,255,255,0.03);
         }
 
-        .model-item:hover { background: rgba(255, 85, 0, 0.2); color: var(--orange-vip); }
+        .model-item:hover { background: rgba(255, 51, 0, 0.2); color: var(--orange-vip); }
 
         .section-label {
             font-size: 0.75rem;
@@ -170,7 +171,7 @@
         .btn-grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; margin-bottom: 15px; }
 
         .opt-card {
-            background: #080a10;
+            background: #05070c;
             border: 1px solid var(--panel-border);
             border-radius: 10px;
             padding: 10px 6px;
@@ -181,7 +182,7 @@
 
         .opt-card.active {
             border-color: var(--orange-vip);
-            background: rgba(255, 85, 0, 0.1);
+            background: rgba(255, 51, 0, 0.1);
             box-shadow: 0 0 10px var(--orange-glow);
         }
 
@@ -192,7 +193,7 @@
         .btn-generate {
             width: 100%;
             padding: 16px;
-            background: linear-gradient(90deg, #ff5500, #ff2200);
+            background: linear-gradient(90deg, #ff3300, #cc0000);
             border: none;
             color: #fff;
             font-family: 'Orbitron', sans-serif;
@@ -200,7 +201,7 @@
             font-weight: 700;
             border-radius: 12px;
             cursor: pointer;
-            box-shadow: 0 0 15px var(--orange-glow);
+            box-shadow: 0 0 18px var(--orange-glow);
             transition: 0.3s;
             display: flex;
             align-items: center;
@@ -209,11 +210,60 @@
             margin-top: 10px;
         }
 
+        .loading-box {
+            display: none;
+            text-align: center;
+            margin-top: 20px;
+            background: #05070c;
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid var(--orange-vip);
+        }
+
+        .spinner {
+            width: 40px;
+            height: 40px;
+            border: 4px solid rgba(255, 51, 0, 0.2);
+            border-left-color: var(--orange-vip);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 10px;
+        }
+
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+
+        .results-box {
+            display: none;
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 1px solid var(--panel-border);
+        }
+
+        .res-row { display: flex; justify-content: space-between; font-size: 0.85rem; font-weight: 700; margin-bottom: 4px; }
+        .res-bar { height: 7px; background: #05070c; border-radius: 5px; overflow: hidden; margin-bottom: 10px; }
+        .res-fill { height: 100%; background: var(--orange-vip); width: 0%; transition: width 0.8s ease; }
+
+        .mod-guide {
+            background: #05070c;
+            border: 1px solid var(--orange-vip);
+            border-radius: 12px;
+            padding: 15px;
+            margin-top: 15px;
+            font-size: 0.82rem;
+            line-height: 1.5;
+        }
+
+        .mod-guide h4 { color: var(--gold-vip); margin-bottom: 12px; font-family: 'Orbitron'; font-size: 0.95rem; text-align: center; border-bottom: 1px solid rgba(255,204,0,0.2); padding-bottom: 8px;}
+        .guide-section-title { color: var(--blue-cyan); font-weight: bold; margin-top: 12px; margin-bottom: 6px; font-size: 0.85rem; text-transform: uppercase; display: flex; align-items: center; gap: 6px;}
+        .mod-step { margin-bottom: 8px; color: var(--text-sub); border-bottom: 1px dashed rgba(255,255,255,0.05); padding-bottom: 6px;}
+        .mod-step span { color: #fff; font-weight: bold; }
+        .highlight-box { background: rgba(255,51,0,0.1); border: 1px solid var(--orange-vip); padding: 10px; border-radius: 8px; margin: 10px 0; color: #fff; }
+
         .modal-overlay {
             display: none;
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0, 0, 0, 0.9);
+            background: rgba(0, 0, 0, 0.92);
             z-index: 150;
             justify-content: center;
             align-items: center;
@@ -229,22 +279,8 @@
             max-width: 420px;
         }
 
-        .store-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 10px;
-            margin: 15px 0;
-        }
-
-        .store-item {
-            background: #080a10;
-            border: 1px solid var(--panel-border);
-            border-radius: 12px;
-            padding: 12px;
-            text-align: center;
-            transition: 0.3s;
-        }
-
+        .store-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 15px 0; }
+        .store-item { background: #05070c; border: 1px solid var(--panel-border); border-radius: 12px; padding: 12px; text-align: center; }
         .store-diamonds { font-family: 'Orbitron'; font-weight: bold; color: var(--blue-cyan); font-size: 1rem; }
         
         .store-price-btn {
@@ -256,41 +292,13 @@
             margin-top: 6px;
             font-size: 0.8rem;
             cursor: pointer;
-            transition: 0.2s;
         }
-
-        .results-box {
-            display: none;
-            margin-top: 20px;
-            padding-top: 15px;
-            border-top: 1px solid var(--panel-border);
-        }
-
-        .res-row { display: flex; justify-content: space-between; font-size: 0.85rem; font-weight: 700; margin-bottom: 4px; }
-        .res-bar { height: 7px; background: #080a10; border-radius: 5px; overflow: hidden; margin-bottom: 10px; }
-        .res-fill { height: 100%; background: var(--orange-vip); width: 0%; transition: width 0.8s ease; }
-
-        .mod-guide {
-            background: #080a10;
-            border: 1px solid var(--orange-vip);
-            border-radius: 12px;
-            padding: 15px;
-            margin-top: 15px;
-            font-size: 0.82rem;
-            line-height: 1.5;
-        }
-
-        .mod-guide h4 { color: var(--gold-vip); margin-bottom: 12px; font-family: 'Orbitron'; font-size: 0.95rem; text-align: center; border-bottom: 1px solid rgba(255,215,0,0.2); padding-bottom: 8px;}
-        .guide-section-title { color: var(--blue-cyan); font-weight: bold; margin-top: 10px; margin-bottom: 4px; font-size: 0.85rem; text-transform: uppercase;}
-        .mod-step { margin-bottom: 8px; color: var(--text-sub); border-bottom: 1px dashed rgba(255,255,255,0.05); padding-bottom: 6px;}
-        .mod-step span { color: #fff; font-weight: bold; }
-        .highlight-box { background: rgba(255,85,0,0.1); border: 1px solid var(--orange-vip); padding: 10px; border-radius: 8px; margin: 10px 0; color: #fff; }
 
         .footer-info { text-align: center; margin-top: 20px; font-size: 0.75rem; color: var(--text-sub); }
         .admin-link { color: #333; cursor: pointer; display: block; margin-top: 8px; }
 
         .admin-btn-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 10px; }
-        .admin-gen-btn { background: #080a10; border: 1px solid var(--gold-vip); color: var(--gold-vip); padding: 10px; border-radius: 8px; font-weight: bold; cursor: pointer; font-size: 0.8rem; }
+        .admin-gen-btn { background: #05070c; border: 1px solid var(--gold-vip); color: var(--gold-vip); padding: 10px; border-radius: 8px; font-weight: bold; cursor: pointer; font-size: 0.8rem; }
     </style>
 </head>
 <body>
@@ -299,10 +307,10 @@
 
     <div class="user-header">
         <div class="user-info">
-            <i class="fa-solid fa-shield-halved user-icon"></i>
-            <span class="user-name">AnonyX VIP System</span>
+            <i class="fa-solid fa-microchip user-icon"></i>
+            <span class="user-name">AnonyX Optimizer VIP</span>
         </div>
-        <div class="credit-badge" onclick="openStore()" title="Comprar Créditos">
+        <div class="credit-badge" onclick="openStore()" title="Recargar Saldo">
             <i class="fa-solid fa-gem" style="color:var(--blue-cyan);"></i>
             <span class="credit-amount" id="userCredits">0</span>
         </div>
@@ -314,95 +322,100 @@
             <span class="mode-cost">5 💎</span>
         </button>
         <button class="mode-btn" id="tabPrem" onclick="selectMode('premium', 300)">
-            <span><i class="fa-solid fa-crown"></i> PREMIUM</span>
+            <span><i class="fa-solid fa-crown"></i> REGEDIT PRO</span>
             <span class="mode-cost">300 💎</span>
         </button>
         <button class="mode-btn" id="tabInsp" onclick="selectMode('inspirada', 1000)">
-            <span><i class="fa-solid fa-bolt"></i> INSPIRADA</span>
+            <span><i class="fa-solid fa-crosshair"></i> MOD 100% ROJO</span>
             <span class="mode-cost">1000 💎</span>
         </button>
     </div>
 
     <div class="smart-banner">
-        <i class="fa-solid fa-mobile-screen-button"></i> Dispositivo: <span id="detectedDev" style="color:var(--gold-vip);">Ninguno (Selecciona abajo)</span>
+        <i class="fa-solid fa-mobile-screen-button"></i> Modelo Objetivo: <span id="detectedDev" style="color:var(--gold-vip);">Selecciona abajo</span>
     </div>
 
-    <div class="section-label"><i class="fa-solid fa-magnifying-glass"></i> MARCA Y MODELO DEL CELULAR:</div>
+    <div class="section-label"><i class="fa-solid fa-magnifying-glass"></i> DISPOSITIVO A MODIFICAR:</div>
     <div class="search-container">
         <i class="fa-solid fa-magnifying-glass search-icon"></i>
-        <input type="text" class="search-input" id="deviceSearch" placeholder="Escribe tu modelo (Ej: Samsung, Honor, Redmi...)" oninput="filterDevices()">
+        <input type="text" class="search-input" id="deviceSearch" placeholder="Escribe tu modelo (Ej: Samsung A07, iPhone, Xiaomi...)" oninput="filterDevices()">
     </div>
     <div class="models-list" id="modelsList"></div>
 
-    <div class="section-label"><i class="fa-solid fa-gear"></i> CONFIGURACIÓN DE DPI</div>
+    <div class="section-label"><i class="fa-solid fa-sliders"></i> CALIBRACIÓN DE PANTALLA (DPI)</div>
     <div class="btn-grid-2">
         <div class="opt-card active" id="dpiOff" onclick="selectDpi('off')">
-            <div class="opt-title">SIN DPI / ORIGINAL</div>
+            <div class="opt-title">SIN DPI (OFICIAL)</div>
             <div class="opt-sub">Ajuste Nativo Seguro</div>
         </div>
         <div class="opt-card" id="dpiOn" onclick="selectDpi('on')">
-            <div class="opt-title">CON DPI CALIBRADO</div>
-            <div class="opt-sub">Respuesta Ultra Rápida</div>
+            <div class="opt-title">DPI FORZADO VIP</div>
+            <div class="opt-sub">Ultra Respuesta Puntero</div>
         </div>
     </div>
 
-    <div class="section-label"><i class="fa-solid fa-bullseye"></i> NIVEL DE SENSIBILIDAD</div>
+    <div class="section-label"><i class="fa-solid fa-bullseye"></i> POTENCIA DE ASISTENCIA</div>
     <div class="btn-grid-3">
         <div class="opt-card" id="lvlLow" onclick="selectLevel('baja')">
-            <div class="opt-title">BAJA</div>
+            <div class="opt-title">BALANCE</div>
             <div class="opt-sub">Control Total</div>
         </div>
         <div class="opt-card" id="lvlMed" onclick="selectLevel('media')">
-            <div class="opt-title">MEDIA</div>
-            <div class="opt-sub">Equilibrada</div>
+            <div class="opt-title">AGRESIVO</div>
+            <div class="opt-sub">Fijación Alta</div>
         </div>
         <div class="opt-card active" id="lvlHigh" onclick="selectLevel('alta')">
-            <div class="opt-title">ALTA VIP</div>
+            <div class="opt-title">AIM LOCK</div>
             <div class="opt-sub">Todo Rojo Seco</div>
         </div>
     </div>
 
-    <div class="section-label"><i class="fa-solid fa-circle-dot"></i> TAMAÑO BOTÓN DE DISPARO</div>
+    <div class="section-label"><i class="fa-solid fa-circle-dot"></i> BOTÓN DE MIRA OPTIMIZADO</div>
     <div class="btn-grid-3">
         <div class="opt-card active" id="btnS" onclick="selectBtnSize('small')">
             <div class="opt-title">PEQUEÑO</div>
-            <div class="opt-sub">38% - 44%</div>
+            <div class="opt-sub">38% - 43%</div>
         </div>
         <div class="opt-card" id="btnM" onclick="selectBtnSize('medium')">
             <div class="opt-title">MEDIANO</div>
-            <div class="opt-sub">45% - 50%</div>
+            <div class="opt-sub">44% - 49%</div>
         </div>
         <div class="opt-card" id="btnL" onclick="selectBtnSize('large')">
             <div class="opt-title">GRANDE</div>
-            <div class="opt-sub">51% - 58%</div>
+            <div class="opt-sub">50% - 56%</div>
         </div>
     </div>
 
-    <button class="btn-generate" onclick="handleGenerate()"><i class="fa-solid fa-bolt"></i> GENERAR CALIBRACIÓN TODO ROJO</button>
+    <button class="btn-generate" onclick="handleGenerate()"><i class="fa-solid fa-wand-magic-sparkles"></i> GENERAR MODIFICACIÓN DE SENSIBILIDAD</button>
+
+    <div class="loading-box" id="loadingBox">
+        <div class="spinner"></div>
+        <p style="color:var(--orange-vip); font-family:'Orbitron'; font-size:0.85rem; font-weight:bold;" id="loadingText">Escaneando capa táctil del dispositivo...</p>
+    </div>
 
     <div class="results-box" id="resBox">
-        <p style="color:var(--orange-vip); font-weight:bold; text-align:center; margin-bottom:10px; font-family:'Orbitron';" id="resTitle">CALIBRACIÓN 100% TODO ROJO</p>
+        <p style="color:var(--orange-vip); font-weight:bold; text-align:center; margin-bottom:10px; font-family:'Orbitron';" id="resTitle">MODIFICACIÓN DE SENSIBILIDAD APLICADA</p>
         
-        <div class="res-row"><span>General</span><span id="vG">0</span></div>
+        <div class="res-row"><span>General (Seguimiento Cabeza)</span><span id="vG">0</span></div>
         <div class="res-bar"><div class="res-fill" id="bG"></div></div>
 
-        <div class="res-row"><span>Mira de Punto Rojo</span><span id="vR">0</span></div>
+        <div class="res-row"><span>Mira de Punto Rojo (Anti-Temblor)</span><span id="vR">0</span></div>
         <div class="res-bar"><div class="res-fill" id="bR"></div></div>
 
-        <div class="res-row"><span>Mira 2x</span><span id="v2">0</span></div>
+        <div class="res-row"><span>Mira 2x (Enfoque Rápido)</span><span id="v2">0</span></div>
         <div class="res-bar"><div class="res-fill" id="b2"></div></div>
 
-        <div class="res-row"><span>Mira 4x</span><span id="v4">0</span></div>
+        <div class="res-row"><span>Mira 4x (Larga Distancia)</span><span id="v4">0</span></div>
         <div class="res-bar"><div class="res-fill" id="b4"></div></div>
 
-        <div class="res-row"><span>Mira Francotirador</span><span id="vA">0</span></div>
+        <div class="res-row"><span>Francotirador (Precisión)</span><span id="vA">0</span></div>
         <div class="res-bar"><div class="res-fill" id="bA"></div></div>
 
         <div class="res-row"><span>Cámara 360°</span><span id="vC">0</span></div>
         <div class="res-bar"><div class="res-fill" id="bC"></div></div>
 
-        <div style="text-align:center; background:#080a10; padding:10px; border-radius:10px; border:1px dashed var(--orange-vip); margin-top:10px;">
-            <span style="font-size:0.75rem; color:var(--text-sub);">BOTÓN DE DISPARO OPTIMIZADO</span>
+        <div style="text-align:center; background:#05070c; padding:10px; border-radius:10px; border:1px dashed var(--orange-vip); margin-top:10px;">
+            <span style="font-size:0.75rem; color:var(--text-sub);">TAMAÑO DE BOTÓN DE DISPARO EXACTO</span>
             <h2 style="color:var(--orange-vip); font-family:'Orbitron';" id="vB">0%</h2>
         </div>
 
@@ -420,40 +433,22 @@
 <div class="modal-overlay" id="storeModal">
     <div class="modal-body">
         <h3 style="color:var(--blue-cyan); font-family:'Orbitron'; text-align:center;"><i class="fa-solid fa-gem"></i> TIENDA DE DIAMANTES VIP</h3>
-        <p style="font-size:0.78rem; color:var(--text-sub); text-align:center; margin-top:4px;">Selecciona tu paquete e ingresa la Key proporcionada:</p>
+        <p style="font-size:0.78rem; color:var(--text-sub); text-align:center; margin-top:4px;">Selecciona tu paquete de recarga:</p>
         
         <div class="store-grid">
-            <div class="store-item">
-                <div class="store-diamonds">💎 100</div>
-                <div class="store-price-btn" onclick="startBuyProcess(100)">$1.08 USD</div>
-            </div>
-            <div class="store-item">
-                <div class="store-diamonds">💎 310</div>
-                <div class="store-price-btn" onclick="startBuyProcess(310)">$3.26 USD</div>
-            </div>
-            <div class="store-item">
-                <div class="store-diamonds">💎 520</div>
-                <div class="store-price-btn" onclick="startBuyProcess(520)">$5.08 USD</div>
-            </div>
-            <div class="store-item">
-                <div class="store-diamonds">💎 1060</div>
-                <div class="store-price-btn" onclick="startBuyProcess(1060)">$10.91 USD</div>
-            </div>
-            <div class="store-item">
-                <div class="store-diamonds">💎 2180</div>
-                <div class="store-price-btn" onclick="startBuyProcess(2180)">$21.09 USD</div>
-            </div>
-            <div class="store-item">
-                <div class="store-diamonds">💎 5600</div>
-                <div class="store-price-btn" onclick="startBuyProcess(5600)">$50.22 USD</div>
-            </div>
+            <div class="store-item"><div class="store-diamonds">💎 100</div><div class="store-price-btn" onclick="startBuyProcess(100)">$1.08 USD</div></div>
+            <div class="store-item"><div class="store-diamonds">💎 310</div><div class="store-price-btn" onclick="startBuyProcess(310)">$3.26 USD</div></div>
+            <div class="store-item"><div class="store-diamonds">💎 520</div><div class="store-price-btn" onclick="startBuyProcess(520)">$5.08 USD</div></div>
+            <div class="store-item"><div class="store-diamonds">💎 1060</div><div class="store-price-btn" onclick="startBuyProcess(1060)">$10.91 USD</div></div>
+            <div class="store-item"><div class="store-diamonds">💎 2180</div><div class="store-price-btn" onclick="startBuyProcess(2180)">$21.09 USD</div></div>
+            <div class="store-item"><div class="store-diamonds">💎 5600</div><div class="store-price-btn" onclick="startBuyProcess(5600)">$50.22 USD</div></div>
         </div>
 
-        <button onclick="closeStore()" style="width:100%; padding:10px; background:#222; border:none; color:#fff; border-radius:8px; cursor:pointer;">CERRAR TIENDA</button>
+        <button onclick="closeStore()" style="width:100%; padding:10px; background:#111; border:none; color:#fff; border-radius:8px; cursor:pointer;">CERRAR</button>
     </div>
 </div>
 
-<!-- MODAL INGRESO DE KEY DE PAQUETE -->
+<!-- MODAL CANJE KEY CLIENTE -->
 <div class="modal-overlay" id="inputKeyModal" style="z-index:220;">
     <div class="modal-body" style="text-align: center;">
         <h3 style="color:var(--gold-vip); font-family:'Orbitron'; margin-bottom:6px;">PROCESO DE RECARGA</h3>
@@ -466,20 +461,20 @@
     </div>
 </div>
 
-<!-- MODAL COMPRA EXITOSA Y CANJE ÚNICO -->
+<!-- MODAL COMPRA EXITOSA Y QUEMA DE KEY -->
 <div class="modal-overlay" id="successModal" style="z-index: 250;">
     <div class="modal-body" style="border-color: var(--green-success); text-align: center;">
         <i class="fa-solid fa-circle-check" style="font-size:3.5rem; color:var(--green-success); margin-bottom:8px;"></i>
         <h3 style="color:var(--green-success); font-family:'Orbitron';">¡RECARGA EXITOSA!</h3>
         
-        <div style="background:#080a10; padding:15px; border-radius:12px; border:1px solid var(--green-success); margin:15px 0;">
+        <div style="background:#05070c; padding:15px; border-radius:12px; border:1px solid var(--green-success); margin:15px 0;">
             <i class="fa-solid fa-gem" style="font-size:2.5rem; color:var(--blue-cyan); margin-bottom:5px;"></i>
             <h1 style="color:var(--blue-cyan); font-family:'Orbitron'; font-size:2.2rem; margin:2px 0;" id="successAmount">💎 100</h1>
-            <p style="color:var(--text-sub); font-size:0.75rem; margin-top:5px;">KEY CANJEADA (UN SOLO USO):</p>
+            <p style="color:var(--text-sub); font-size:0.75rem; margin-top:5px;">KEY VALIDADA (UN SOLO USO):</p>
             <p style="color:var(--gold-vip); font-size:0.9rem; font-family:'Orbitron'; font-weight:bold;" id="successKeyDisplay">ANX-XXXXXX</p>
         </div>
 
-        <button onclick="claimDiamonds()" style="width:100%; padding:14px; background:linear-gradient(90deg, #00ff66, #00b347); border:none; color:#000; font-family:'Orbitron'; font-weight:900; border-radius:10px; cursor:pointer; box-shadow: 0 0 15px rgba(0,255,102,0.4);"><i class="fa-solid fa-download"></i> CANJEAR Y QUEMAR CLAVE</button>
+        <button onclick="claimDiamonds()" style="width:100%; padding:14px; background:linear-gradient(90deg, #00ff66, #00b347); border:none; color:#000; font-family:'Orbitron'; font-weight:900; border-radius:10px; cursor:pointer; box-shadow: 0 0 15px rgba(0,255,102,0.4);"><i class="fa-solid fa-download"></i> CANJEAR Y DESTRUIR KEY</button>
     </div>
 </div>
 
@@ -504,7 +499,7 @@
                 <button class="admin-gen-btn" onclick="adminQuickGen(5600)">💎 5600</button>
             </div>
 
-            <div id="generatedOutput" style="display:none; background:#080a10; padding:10px; border-radius:8px; border:1px solid var(--gold-vip); margin-top:12px; text-align:center;">
+            <div id="generatedOutput" style="display:none; background:#05070c; padding:10px; border-radius:8px; border:1px solid var(--gold-vip); margin-top:12px; text-align:center;">
                 <p style="font-size:0.7rem; color:var(--text-sub);">KEY GENERADA:</p>
                 <h3 style="color:var(--gold-vip); font-family:'Orbitron';" id="outputKeyText">ANX-XXXXXX</h3>
                 <button onclick="copyAdminKey()" style="margin-top:6px; padding:6px 12px; background:var(--gold-vip); border:none; color:#000; font-weight:bold; border-radius:6px; cursor:pointer; font-size:0.75rem;"><i class="fa-solid fa-copy"></i> COPIAR KEY</button>
@@ -527,15 +522,14 @@
         "iPhone 8 Plus", "iPhone X", "iPhone XR", "iPhone 11", "iPhone 12", "iPhone 13 Pro Max", "iPhone 14 Pro Max", "iPhone 15 Pro Max"
     ];
 
-    // Cargar créditos guardados en localStorage. Si no existe, inicia con 5 de regalo.
+    // Cargar créditos de almacenamiento permanente (Si no hay, inicializa en 5 de prueba)
     let credits = localStorage.getItem('anonyx_credits') !== null ? parseInt(localStorage.getItem('anonyx_credits')) : 5;
     
     function updateCreditsDisplay() {
         document.getElementById('userCredits').innerText = credits;
-        localStorage.setItem('anonyx_credits', credits.toString()); // Guarda en almacenamiento interno
+        localStorage.setItem('anonyx_credits', credits.toString());
     }
     
-    // Inicializar visualización al cargar página
     updateCreditsDisplay();
 
     let selectedMode = 'normal';
@@ -546,7 +540,6 @@
     let selectedBtnSize = 'small';
 
     let systemPins = JSON.parse(localStorage.getItem('anonyx_pins')) || {};
-    let currentSelectedPack = 0;
     let pendingClaimAmount = 0;
     let pendingClaimKey = '';
 
@@ -589,7 +582,6 @@
     function closeStore() { document.getElementById('storeModal').style.display = 'none'; }
 
     function startBuyProcess(amount) {
-        currentSelectedPack = amount;
         document.getElementById('packAmountText').innerText = amount + " 💎";
         document.getElementById('packKeyInput').value = '';
         document.getElementById('inputKeyModal').style.display = 'flex';
@@ -612,21 +604,19 @@
             closeStore();
             document.getElementById('successModal').style.display = 'flex';
         } else {
-            alert("❌ Clave incorrecta o ya utilizada. No se puede reconectar ni reutilizar.");
+            alert("❌ Clave incorrecta o ya fue utilizada previamente.");
         }
     }
 
     function claimDiamonds() {
         credits += pendingClaimAmount;
-        updateCreditsDisplay(); // Guarda saldo actualizado permanentemente
+        updateCreditsDisplay();
 
         delete systemPins[pendingClaimKey];
         localStorage.setItem('anonyx_pins', JSON.stringify(systemPins));
 
-        navigator.clipboard.writeText(pendingClaimKey);
-
         document.getElementById('successModal').style.display = 'none';
-        alert(`🎉 ¡RECARGA EXITOSA! Se añadieron ${pendingClaimAmount} Diamantes. La clave fue destruida en el servidor.`);
+        alert(`🎉 ¡RECARGA EXITOSA! Se han añadido ${pendingClaimAmount} 💎 a tu saldo.`);
     }
 
     function handleGenerate() {
@@ -637,23 +627,37 @@
         }
 
         if(credits < modeCost) {
-            alert(`❌ Saldo insuficiente. El modo ${selectedMode.toUpperCase()} cuesta ${modeCost} 💎. Tu saldo actual: ${credits} 💎.`);
+            alert(`❌ Saldo insuficiente. El modo seleccionado requiere ${modeCost} 💎. Tu saldo actual es de ${credits} 💎.`);
             openStore();
             return;
         }
 
         credits -= modeCost;
-        updateCreditsDisplay(); // Actualiza y guarda saldo retenido tras la compra
+        updateCreditsDisplay();
 
-        // Semilla basada en el nombre del celular
+        document.getElementById('resBox').style.display = 'none';
+        const loadingBox = document.getElementById('loadingBox');
+        const loadingText = document.getElementById('loadingText');
+        loadingBox.style.display = 'block';
+
+        setTimeout(() => { loadingText.innerText = "Calculando densidad de píxeles y velocidad de respuesta táctil..."; }, 800);
+        setTimeout(() => { loadingText.innerText = "Optimizando fijación de mira Aim-Lock para " + selectedDevice + "..."; }, 1600);
+
+        setTimeout(() => {
+            loadingBox.style.display = 'none';
+            renderResults();
+        }, 2400);
+    }
+
+    function renderResults() {
         let seed = 0;
         for(let i=0; i<selectedDevice.length; i++) seed += selectedDevice.charCodeAt(i);
 
-        let g = 194 + (seed % 6);
-        let r = 197 + (seed % 4);
-        let m2 = 189 + (seed % 9);
-        let m4 = 194 + (seed % 6);
-        let awm = Math.floor(45 + (seed % 35));
+        let g = 196 + (seed % 4);
+        let r = 198 + (seed % 3);
+        let m2 = 191 + (seed % 7);
+        let m4 = 195 + (seed % 5);
+        let awm = Math.floor(40 + (seed % 30));
         let cam360 = 100;
 
         let bSize = selectedBtnSize === 'small' ? "41%" : (selectedBtnSize === 'medium' ? "47%" : "52%");
@@ -673,61 +677,48 @@
         document.getElementById('bA').style.width = (awm / 200 * 100) + '%';
         document.getElementById('bC').style.width = (cam360 / 200 * 100) + '%';
 
-        let exactDpiValue = 540 + (seed % 180);
-        let nativeDpiTip = selectedDevice.includes("iPhone") ? "Sensibilidad de Puntero al 100% (iOS Nativo)" : "Escala de Animación en 0.5x (Aceleración Nativa)";
-
+        let exactDpiValue = 580 + (seed % 140);
         let guideHTML = '';
 
         if(selectedMode === 'normal') {
-            document.getElementById('resTitle').innerText = "CALIBRACIÓN BÁSICA DE JUEGO";
+            document.getElementById('resTitle').innerText = "CALIBRACIÓN DE SENSIBILIDAD NATIVA";
             guideHTML = `
-                <h4><i class="fa-solid fa-sliders"></i> AJUSTES BÁSICOS PARA ${selectedDevice.toUpperCase()}</h4>
-                <div class="mod-step">1. <span>Sensibilidad Juego:</span> Ingresa los números exactos indicados arriba.</div>
-                <div class="mod-step">2. <span>DPI Seleccionado:</span> ${selectedDpi === 'on' ? exactDpiValue + " DPI" : nativeDpiTip}</div>
-                <div class="mod-step">3. <span>Botón de Disparo:</span> Ubícalo a un nivel medio-bajo de tu pantalla.</div>
+                <h4><i class="fa-solid fa-sliders"></i> OPTIMIZACIÓN NATIVA - ${selectedDevice.toUpperCase()}</h4>
+                <div class="mod-step">1. <span>Ajustes del Juego:</span> Pon las cifras exactas indicadas arriba.</div>
+                <div class="mod-step">2. <span>DPI Recomendado:</span> ${selectedDpi === 'on' ? exactDpiValue + " DPI" : "Predeterminado de fábrica"}</div>
+                <div class="mod-step">3. <span>Botón de Disparo:</span> Colocar a <span>${bSize}</span> en la parte inferior central.</div>
             `;
         } else if(selectedMode === 'premium') {
-            document.getElementById('resTitle').innerText = "⭐ MODIFICACIÓN PREMIUM SISTEMA Y DPI ⭐";
+            document.getElementById('resTitle').innerText = "⭐ REGEDIT VIP & SISTEMA DE RESPUESTA ⭐";
             guideHTML = `
-                <h4><i class="fa-solid fa-crown"></i> CALIBRACIÓN PRO SISTEMA (${selectedDevice.toUpperCase()})</h4>
+                <h4><i class="fa-solid fa-crown"></i> CONFIGURACIÓN TIPO REGEDIT (${selectedDevice.toUpperCase()})</h4>
                 
-                <div class="guide-section-title"><i class="fa-solid fa-mobile"></i> 1. CONFIGURACIÓN EXACTA DE PANTALLA Y DPI</div>
+                <div class="guide-section-title"><i class="fa-solid fa-microchip"></i> 1. CALIBRACIÓN DE SISTEMA (PUNTERO Y RESPUESTA)</div>
+                <div class="mod-step">• <span>Velocidad de Puntero/Mause:</span> 100% al Máximo.</div>
+                <div class="mod-step">• <span>Tiempo de Respuesta Táctil:</span> Mínimo (0.1 segundos).</div>
+                <div class="mod-step">• <span>Supresor (Clic al parar puntero):</span> Activado en <span>500 ms</span> (Evita que la mira pase arriba de los cascos).</div>
+
+                <div class="guide-section-title"><i class="fa-solid fa-mobile-retro"></i> 2. MODIFICACIÓN DE PANTALLA Y DPI</div>
                 <div class="highlight-box">
-                    <b>DPI PERFECTO RECOMENDADO:</b> ${selectedDpi === 'on' ? exactDpiValue + " DPI (Procesado para evitar errores)" : "SIN DPI -> " + nativeDpiTip}<br>
-                    <b>Escala de Animaciones:</b> Transición y Ventana en 0.5x
+                    <b>VALOR DE DPI CALCULADO:</b> ${selectedDpi === 'on' ? exactDpiValue + " DPI (Ancho Mínimo)" : "SIN DPI -> Escala de animaciones en 0.5x"}<br>
+                    <b>Aceleración de Capa:</b> Mantén activa la tasa de refresco máxima (90Hz / 120Hz).
                 </div>
-
-                <div class="guide-section-title"><i class="fa-solid fa-gears"></i> 2. MODIFICACIONES DE ACCESIBILIDAD</div>
-                <div class="mod-step">• <span>Velocidad de Puntero:</span> Ponlo en el Máximo menos 1 muesca.</div>
-                <div class="mod-step">• <span>Supresor (Clic al parar puntero):</span> Activado en <span>600 ms</span>.</div>
-                <div class="mod-step">• <span>Tiempo de Pulsación Prolongada:</span> Corto (0.5 segundos).</div>
-
-                <div class="guide-section-title"><i class="fa-solid fa-crosshair"></i> 3. TÉCNICA DE ALZADA DE MIRA</div>
-                <div class="mod-step">• <span>Distancia Media/Larga:</span> Alza el botón en línea recta con velocidad constante.</div>
-                <div class="mod-step">• <span>Distancia Corta:</span> Alza en forma de "J" suave hacia la derecha para enganchar el primer tiro en la cabeza.</div>
             `;
         } else {
-            document.getElementById('resTitle').innerText = "⚡ CALIBRACIÓN TOP GLOBAL INSPIRADA (100% TODO ROJO) ⚡";
+            document.getElementById('resTitle').innerText = "⚡ MOD VIP 100% TODO ROJO (AIM LOCK & SUPRESOR) ⚡";
             guideHTML = `
-                <h4><i class="fa-solid fa-bolt"></i> REGEDIT Y GUÍA PASO A PASO ULTIMATE (${selectedDevice.toUpperCase()})</h4>
+                <h4><i class="fa-solid fa-bolt"></i> GUÍA DE AJUSTE ELITE PRO (${selectedDevice.toUpperCase()})</h4>
                 
-                <div class="guide-section-title"><i class="fa-solid fa-sliders"></i> 1. DPI Y ACELERACIÓN PERFECTA</div>
+                <div class="guide-section-title"><i class="fa-solid fa-crosshair"></i> 1. AJUSTES INTERNOS ESTILO MODDING</div>
+                <div class="mod-step">1. <span>Velocidad de Puntero:</span> Máximo absoluto + 1 toque de aceleración rápida.</div>
+                <div class="mod-step">2. <span>Supresor de Anti-Temblor:</span> Activar y colocar en <span>200 ms</span>. Esto simula la fijación en el casco sin que tiemble la mira.</div>
+                <div class="mod-step">3. <span>Retraso al Mantener Presionado:</span> Breve (0.2s).</div>
+
+                <div class="guide-section-title"><i class="fa-solid fa-fire"></i> 2. TÉCNICA DE ALZADA DE MIRA TIPO P90 / AR (COMO EN EL VIDEO)</div>
                 <div class="highlight-box">
-                    <b>DPI MODIFICADO EXACTO:</b> ${selectedDpi === 'on' ? exactDpiValue + " DPI (Calibración exacta de pantalla)" : "SIN DPI -> Configura 'Ancho Mínimo' de fábrica y activa 'Aceleración por Hardware' en Opciones de Desarrollador"}<br>
-                    <b>Tasa de Refresco:</b> Pon la pantalla a 90Hz / 120Hz si tu equipo lo permite.
+                    <b>POSICIÓN DEL BOTÓN:</b> Colócalo exacto en el borde inferior. <br>
+                    <b>TÉCNICA DE TIRO EN "J" RÁPIDA:</b> Para pegar solo rojos a media/larga distancia como con P90, no jales recto hacia arriba brusco. Haz un movimiento curvo leve hacia abajo y sube rápidamente al casco. ¡El supresor enganchará solo rojos!
                 </div>
-
-                <div class="guide-section-title"><i class="fa-solid fa-microchip"></i> 2. INTERFAZ Y REACCION TÁCTIL VIP</div>
-                <div class="mod-step">1. <span>Velocidad de Puntero / Ratón:</span> 100% al Máximo.</div>
-                <div class="mod-step">2. <span>Supresor Anti-Temblor:</span> Activado exacto en <span>300 ms</span> (Evita que la mira pase por encima del casco).</div>
-                <div class="mod-step">3. <span>Retraso al Mantener Presionado:</span> Ultra Corto (0.2 segundos).</div>
-                <div class="mod-step">4. <span>Sensibilidad Táctil (Game Turbo/Game Space):</span> Respuesta de toque al 100% y zona anti-toque accidental desactivada.</div>
-
-                <div class="guide-section-title"><i class="fa-solid fa-fire"></i> 3. GUÍA COMPLETA: CÓMO LEVANTAR MIRA Y NO FALLAR TIROS</div>
-                <div class="mod-step">🔹 <span>Posición del Botón:</span> Colócalo pegado exactamente a 2 milímetros del borde inferior de la pantalla. Esto te da más espacio de recorrido para alzar el dedo.</div>
-                <div class="mod-step">🔹 <span>Disparo a Corta Distancia (Escopeta / SMG):</span> Realiza la alzada en "J" INVERTIDA de manera explosiva. Da el jalón rápido y suelta.</div>
-                <div class="mod-step">🔹 <span>Disparo a Media / Larga Distancia (AR):</span> No des jalones bruscos. Desliza el dedo suavemente en línea recta vertical hacia arriba permitiendo que la mira de punto rojo fije la cabeza.</div>
-                <div class="mod-step">🔹 <span>Enemigo en Movimiento Lateral:</span> Alza el botón siguiendo diagonalmente la trayectoria de la cabeza del enemigo. ¡Jamás alces recto si corre de lado!</div>
             `;
         }
 
@@ -791,4 +782,3 @@
 
 </body>
 </html>
-
