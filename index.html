@@ -3,632 +3,797 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AnonyX VIP - Generador & Calibrador Elite Free Fire</title>
-
-    <!-- Lucide Icons -->
-    <script src="https://unpkg.com/lucide@latest"></script>
-
+    <title>AnonyX VIP System - Generador Ultra Sensi</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <style>
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', system-ui, sans-serif; }
-        body { background-color: #08080a; color: #f3f4f6; min-height: 100vh; display: flex; flex-direction: column; }
-        
         :root {
-            --bg-card: #121217;
-            --border-card: #282836;
-            --neon-orange: #FF5500;
-            --neon-cyan: #00E5FF;
-            --neon-gold: #FFB700;
-            --neon-green: #00FF66;
-            --text-gray: #9ca3af;
+            --bg-main: #0b0d14;
+            --panel-bg: #121624;
+            --panel-border: #1c2338;
+            --orange-vip: #ff5500;
+            --orange-glow: rgba(255, 85, 0, 0.35);
+            --blue-cyan: #00d2ff;
+            --gold-vip: #ffd700;
+            --green-success: #00ff66;
+            --text-primary: #ffffff;
+            --text-sub: #8d9bb0;
         }
 
-        header {
-            position: sticky; top: 0; z-index: 40;
-            background: rgba(18, 18, 23, 0.95);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid var(--border-card);
-            padding: 12px 16px;
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Rajdhani', sans-serif; user-select: none; }
+
+        body {
+            background-color: var(--bg-main);
+            color: var(--text-primary);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 15px;
         }
 
-        .header-container { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
-        .logo-box { display: flex; align-items: center; gap: 10px; cursor: pointer; }
-        .logo-icon { width: 40px; height: 40px; border-radius: 12px; background: linear-gradient(135deg, var(--neon-orange), var(--neon-cyan)); display: flex; align-items: center; justify-content: center; }
-        .logo-title { font-size: 18px; font-weight: 900; color: #fff; }
-        .logo-title span { color: var(--neon-orange); }
-
-        .credit-badge { background: #08080a; border: 1px solid var(--border-card); padding: 6px 14px; border-radius: 30px; font-size: 13px; font-weight: 900; color: var(--neon-cyan); }
-
-        .main-container { max-width: 900px; margin: 0 auto; padding: 24px 16px; width: 100%; flex-grow: 1; }
-        .card { background: var(--bg-card); border: 1px solid var(--border-card); border-radius: 16px; padding: 20px; margin-bottom: 20px; }
-        .card-title { font-size: 14px; font-weight: 800; color: var(--neon-cyan); text-transform: uppercase; margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
-
-        .detected-badge {
-            display: flex; align-items: center; gap: 10px;
-            background: rgba(0, 229, 255, 0.1); border: 1px solid var(--neon-cyan);
-            color: var(--neon-cyan); font-size: 13px; font-weight: 800;
-            padding: 12px 16px; border-radius: 12px; margin-bottom: 16px; width: 100%;
+        .main-card {
+            width: 100%;
+            max-width: 480px;
+            background: var(--panel-bg);
+            border: 1px solid var(--panel-border);
+            border-radius: 20px;
+            padding: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
         }
 
-        .form-group { margin-bottom: 18px; position: relative; }
-        .form-group label { display: block; font-size: 11px; font-weight: 800; color: var(--text-gray); text-transform: uppercase; margin-bottom: 6px; }
+        .user-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #080a10;
+            padding: 10px 15px;
+            border-radius: 12px;
+            border: 1px solid var(--panel-border);
+            margin-bottom: 15px;
+        }
+
+        .user-info { display: flex; align-items: center; gap: 8px; }
+        .user-icon { color: var(--orange-vip); font-size: 1.2rem; }
+        .user-name { font-weight: 700; font-size: 0.9rem; }
+
+        .credit-badge {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(0, 210, 255, 0.1);
+            border: 1px solid var(--blue-cyan);
+            border-radius: 10px;
+            padding: 5px 12px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .credit-amount { font-family: 'Orbitron', sans-serif; font-weight: 700; color: #fff; }
+
+        .mode-tabs { display: flex; gap: 6px; margin-bottom: 15px; }
+
+        .mode-btn {
+            flex: 1;
+            padding: 10px 2px;
+            background: #080a10;
+            border: 1px solid var(--panel-border);
+            color: var(--text-sub);
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: 0.78rem;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 3px;
+            transition: 0.3s;
+        }
+
+        .mode-btn.active {
+            border-color: var(--orange-vip);
+            color: var(--orange-vip);
+            background: rgba(255, 85, 0, 0.1);
+            box-shadow: 0 0 8px var(--orange-glow);
+        }
+
+        .mode-cost { font-size: 0.68rem; color: var(--gold-vip); }
+
+        .smart-banner {
+            background: rgba(0, 210, 255, 0.05);
+            border: 1px solid var(--blue-cyan);
+            border-radius: 12px;
+            padding: 12px;
+            text-align: center;
+            margin-bottom: 15px;
+            color: var(--blue-cyan);
+            font-size: 0.85rem;
+            font-weight: 700;
+        }
+
+        .search-container { position: relative; margin-bottom: 10px; }
+
+        .search-input {
+            width: 100%;
+            padding: 12px 12px 12px 38px;
+            background: #080a10;
+            border: 1px solid var(--panel-border);
+            color: #fff;
+            border-radius: 10px;
+            font-size: 0.9rem;
+            outline: none;
+        }
+
+        .search-input:focus { border-color: var(--orange-vip); }
+
+        .search-icon {
+            position: absolute;
+            left: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-sub);
+        }
+
+        .models-list {
+            max-height: 140px;
+            overflow-y: auto;
+            background: #080a10;
+            border: 1px solid var(--panel-border);
+            border-radius: 10px;
+            margin-bottom: 15px;
+            display: none;
+        }
+
+        .model-item {
+            padding: 10px 12px;
+            font-size: 0.85rem;
+            cursor: pointer;
+            border-bottom: 1px solid rgba(255,255,255,0.03);
+        }
+
+        .model-item:hover { background: rgba(255, 85, 0, 0.2); color: var(--orange-vip); }
+
+        .section-label {
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--text-sub);
+            text-transform: uppercase;
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .btn-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 15px; }
+        .btn-grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; margin-bottom: 15px; }
+
+        .opt-card {
+            background: #080a10;
+            border: 1px solid var(--panel-border);
+            border-radius: 10px;
+            padding: 10px 6px;
+            text-align: center;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .opt-card.active {
+            border-color: var(--orange-vip);
+            background: rgba(255, 85, 0, 0.1);
+            box-shadow: 0 0 10px var(--orange-glow);
+        }
+
+        .opt-title { font-size: 0.85rem; font-weight: 700; color: #fff; }
+        .opt-sub { font-size: 0.68rem; color: var(--text-sub); margin-top: 2px; }
+        .opt-card.active .opt-title { color: var(--orange-vip); }
+
+        .btn-generate {
+            width: 100%;
+            padding: 16px;
+            background: linear-gradient(90deg, #ff5500, #ff2200);
+            border: none;
+            color: #fff;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 700;
+            border-radius: 12px;
+            cursor: pointer;
+            box-shadow: 0 0 15px var(--orange-glow);
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 10px;
+        }
+
+        /* MODALES */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 150;
+            justify-content: center;
+            align-items: center;
+            padding: 15px;
+        }
+
+        .modal-body {
+            background: var(--panel-bg);
+            border: 1px solid var(--blue-cyan);
+            border-radius: 18px;
+            padding: 20px;
+            width: 100%;
+            max-width: 420px;
+        }
+
+        .store-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin: 15px 0;
+        }
+
+        .store-item {
+            background: #080a10;
+            border: 1px solid var(--panel-border);
+            border-radius: 12px;
+            padding: 12px;
+            text-align: center;
+            transition: 0.3s;
+        }
+
+        .store-diamonds { font-family: 'Orbitron'; font-weight: bold; color: var(--blue-cyan); font-size: 1rem; }
         
-        input {
-            width: 100%; background: #08080a; border: 1px solid var(--border-card);
-            border-radius: 10px; padding: 14px; color: #fff; font-size: 14px; outline: none;
+        .store-price-btn {
+            background: var(--gold-vip);
+            color: #000;
+            font-weight: bold;
+            border-radius: 6px;
+            padding: 6px;
+            margin-top: 6px;
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: 0.2s;
         }
-        input:focus { border-color: var(--neon-orange); }
 
-        .device-dropdown-list {
-            position: absolute; top: 100%; left: 0; width: 100%;
-            background: #0d0d12; border: 1px solid var(--neon-orange);
-            border-radius: 10px; max-height: 220px; overflow-y: auto;
-            z-index: 50; margin-top: 4px; box-shadow: 0 8px 24px rgba(0,0,0,0.8);
+        /* RESULTADOS Y GUÍA COMPLETA */
+        .results-box {
+            display: none;
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 1px solid var(--panel-border);
         }
-        .device-item {
-            padding: 12px 16px; font-size: 13px; font-weight: 600; color: #e5e7eb;
-            cursor: pointer; border-bottom: 1px solid #1a1a24;
-            display: flex; align-items: center; gap: 10px;
+
+        .res-row { display: flex; justify-content: space-between; font-size: 0.85rem; font-weight: 700; margin-bottom: 4px; }
+        .res-bar { height: 7px; background: #080a10; border-radius: 5px; overflow: hidden; margin-bottom: 10px; }
+        .res-fill { height: 100%; background: var(--orange-vip); width: 0%; transition: width 0.8s ease; }
+
+        /* GUÍAS EXTENDIDAS VIP */
+        .mod-guide {
+            background: #080a10;
+            border: 1px solid var(--orange-vip);
+            border-radius: 12px;
+            padding: 15px;
+            margin-top: 15px;
+            font-size: 0.82rem;
+            line-height: 1.5;
         }
-        .device-item:hover { background: rgba(255, 85, 0, 0.2); color: var(--neon-orange); }
 
-        .options-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
-        .options-grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+        .mod-guide h4 { color: var(--gold-vip); margin-bottom: 12px; font-family: 'Orbitron'; font-size: 0.95rem; text-align: center; border-bottom: 1px solid rgba(255,215,0,0.2); padding-bottom: 8px;}
+        .guide-section-title { color: var(--blue-cyan); font-weight: bold; margin-top: 10px; margin-bottom: 4px; font-size: 0.85rem; text-transform: uppercase;}
+        .mod-step { margin-bottom: 8px; color: var(--text-sub); border-bottom: 1px dashed rgba(255,255,255,0.05); padding-bottom: 6px;}
+        .mod-step span { color: #fff; font-weight: bold; }
+        .highlight-box { background: rgba(255,85,0,0.1); border: 1px solid var(--orange-vip); padding: 10px; border-radius: 8px; margin: 10px 0; color: #fff; }
 
-        .btn-option {
-            background: #08080a; border: 1px solid var(--border-card);
-            color: var(--text-gray); border-radius: 10px; padding: 12px 8px;
-            font-size: 12px; font-weight: 800; text-transform: uppercase;
-            cursor: pointer; text-align: center; transition: all 0.2s;
-        }
-        .btn-option.active {
-            background: rgba(255, 85, 0, 0.15); border-color: var(--neon-orange); color: var(--neon-orange);
-        }
-        .btn-option .subtext { font-size: 9px; font-weight: 600; opacity: 0.7; display: block; margin-top: 2px; text-transform: none; }
+        .footer-info { text-align: center; margin-top: 20px; font-size: 0.75rem; color: var(--text-sub); }
+        .admin-link { color: #333; cursor: pointer; display: block; margin-top: 8px; }
 
-        .pin-input-box { display: flex; gap: 10px; }
-        .pin-input-box input { flex: 1; font-family: monospace; letter-spacing: 2px; font-weight: bold; }
-
-        .btn-action {
-            background: linear-gradient(90deg, var(--neon-orange), #ff7700);
-            color: #fff; border: none; padding: 12px 20px; border-radius: 10px;
-            font-size: 13px; font-weight: 800; text-transform: uppercase; cursor: pointer;
-            display: flex; align-items: center; justify-content: center; gap: 8px;
-        }
-        .btn-action:hover { opacity: 0.9; }
-        .btn-full { width: 100%; padding: 16px; font-size: 14px; border-radius: 12px; margin-top: 10px; }
-        .btn-green { background: linear-gradient(90deg, #00b341, var(--neon-green)); color: #000; font-weight: 900; }
-
-        .slider-card {
-            background: #08080a; border: 1px solid var(--border-card);
-            border-radius: 12px; padding: 14px; margin-bottom: 12px;
-        }
-        .slider-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
-        .slider-label { font-size: 12px; font-weight: 800; color: #fff; text-transform: uppercase; }
-        .slider-val { font-size: 18px; font-weight: 900; color: var(--neon-gold); font-family: monospace; }
-        .slider-bar-bg { width: 100%; height: 8px; background: #1a1a24; border-radius: 4px; overflow: hidden; position: relative; }
-        .slider-bar-fill { height: 100%; background: linear-gradient(90deg, var(--neon-orange), var(--neon-gold)); border-radius: 4px; transition: width 0.4s ease; }
-
-        .results-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-top: 16px; }
-        @media (min-width: 600px) { .results-grid { grid-template-columns: repeat(3, 1fr); } }
-
-        .param-card { background: #08080a; border: 1px solid var(--border-card); border-radius: 12px; padding: 14px; border-left: 3px solid var(--neon-orange); }
-        .param-card.cyan { border-left-color: var(--neon-cyan); }
-        .param-card.gold { border-left-color: var(--neon-gold); }
-        .param-title { font-size: 10px; font-weight: 800; color: var(--text-gray); text-transform: uppercase; }
-        .param-value { font-size: 20px; font-weight: 900; color: var(--neon-orange); font-family: monospace; }
-        .param-card.cyan .param-value { color: var(--neon-cyan); }
-        .param-card.gold .param-value { color: var(--neon-gold); }
-
-        .guide-step-box { background: #08080a; border: 1px solid var(--border-card); border-radius: 12px; padding: 16px; margin-bottom: 14px; }
-        .guide-step-title { font-size: 13px; font-weight: 900; color: var(--neon-orange); display: flex; align-items: center; gap: 8px; margin-bottom: 8px; text-transform: uppercase; }
-        .guide-step-text { font-size: 12px; color: #d1d5db; line-height: 1.6; }
-        .guide-step-text strong { color: var(--neon-gold); }
-        .technique-badge { display: inline-block; background: rgba(255, 85, 0, 0.15); border: 1px solid var(--neon-orange); color: var(--neon-orange); font-size: 10px; font-weight: 800; padding: 4px 8px; border-radius: 6px; margin-top: 8px; }
-
-        .admin-card { border-color: var(--neon-gold); background: #14120b; }
-        .pin-list { list-style: none; margin-top: 12px; }
-        .pin-item { background: #08080a; border: 1px solid var(--border-card); padding: 10px 14px; border-radius: 8px; margin-bottom: 8px; display: flex; justify-content: space-between; align-items: center; font-size: 12px; }
-        .pin-code { font-family: monospace; font-size: 14px; color: var(--neon-gold); font-weight: bold; }
-
-        footer { border-top: 1px solid var(--border-card); padding: 20px; text-align: center; font-size: 12px; color: var(--text-gray); margin-top: auto; }
-        .admin-trigger { color: #282836; cursor: pointer; margin-top: 10px; display: inline-block; font-size: 11px; user-select: none; }
-
-        .hidden { display: none !important; }
+        .admin-btn-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 10px; }
+        .admin-gen-btn { background: #080a10; border: 1px solid var(--gold-vip); color: var(--gold-vip); padding: 10px; border-radius: 8px; font-weight: bold; cursor: pointer; font-size: 0.8rem; }
     </style>
 </head>
 <body>
 
-    <header>
-        <div class="header-container">
-            <div class="logo-box" onclick="location.reload()">
-                <div class="logo-icon"><i data-lucide="shield-check" style="color: #000;"></i></div>
-                <div class="logo-title">ANONYX <span>VIP</span></div>
-            </div>
-            <div class="credit-capsule">
-                <div class="credit-badge" id="creditDisplay">💎 1 CRÉDITO</div>
-            </div>
+<div class="main-card">
+
+    <!-- HEADER DIAMANTES -->
+    <div class="user-header">
+        <div class="user-info">
+            <i class="fa-solid fa-shield-halved user-icon"></i>
+            <span class="user-name">AnonyX VIP System</span>
         </div>
-    </header>
-
-    <main class="main-container">
-
-        <!-- CANJEAR PIN -->
-        <div class="card">
-            <div class="card-title"><i data-lucide="key-round"></i> Canjear PIN o Clave VIP</div>
-            <div class="form-group" style="margin-bottom:0;">
-                <label>Ingresa tu PIN de recarga:</label>
-                <div class="pin-input-box">
-                    <input type="text" id="pinInput" placeholder="Ej: VIP-8921-X9" style="text-transform: uppercase;">
-                    <button class="btn-action btn-green" onclick="redeemPin()">
-                        <i data-lucide="check-circle"></i> CANJEAR
-                    </button>
-                </div>
-            </div>
+        <div class="credit-badge" onclick="openStore()" title="Comprar Créditos">
+            <i class="fa-solid fa-gem" style="color:var(--blue-cyan);"></i>
+            <span class="credit-amount" id="userCredits">5</span>
         </div>
+    </div>
 
-        <!-- GENERADOR DE SENSIBILIDAD -->
-        <div class="card">
-            <div class="card-title"><i data-lucide="smartphone"></i> Calibración Inteligente de Dispositivo</div>
+    <!-- MODOS -->
+    <div class="mode-tabs">
+        <button class="mode-btn active" id="tabNorm" onclick="selectMode('normal', 5)">
+            <span><i class="fa-solid fa-shield"></i> NORMAL</span>
+            <span class="mode-cost">5 💎</span>
+        </button>
+        <button class="mode-btn" id="tabPrem" onclick="selectMode('premium', 300)">
+            <span><i class="fa-solid fa-crown"></i> PREMIUM</span>
+            <span class="mode-cost">300 💎</span>
+        </button>
+        <button class="mode-btn" id="tabInsp" onclick="selectMode('inspirada', 1000)">
+            <span><i class="fa-solid fa-bolt"></i> INSPIRADA</span>
+            <span class="mode-cost">1000 💎</span>
+        </button>
+    </div>
 
-            <!-- DETECCIÓN AUTOMÁTICA MEJORADA -->
-            <div id="autoDetectBadge" class="detected-badge">
-                <i data-lucide="cpu" style="width: 18px; color: var(--neon-cyan);"></i>
-                <span id="autoDetectText">Analizando hardware y pantalla del dispositivo...</span>
-            </div>
+    <!-- BANNER DISPOSITIVO -->
+    <div class="smart-banner">
+        <i class="fa-solid fa-mobile-screen-button"></i> Dispositivo: <span id="detectedDev" style="color:var(--gold-vip);">Ninguno (Selecciona abajo)</span>
+    </div>
 
-            <!-- BUSCADOR INTELIGENTE -->
-            <div class="form-group">
-                <label>📱 Modelo de celular detectado / Selecciona el tuyo:</label>
-                <input type="text" id="deviceSearchInput" placeholder="Ej: Samsung Galaxy A07, iPhone 15 Pro Max, Redmi Note 13..." oninput="onSearchDevice()" onfocus="onSearchDevice()">
-                <div id="deviceDropdown" class="device-dropdown-list hidden"></div>
-            </div>
+    <!-- BUSCADOR MODELO -->
+    <div class="section-label"><i class="fa-solid fa-magnifying-glass"></i> MARCA Y MODELO DEL CELULAR:</div>
+    <div class="search-container">
+        <i class="fa-solid fa-magnifying-glass search-icon"></i>
+        <input type="text" class="search-input" id="deviceSearch" placeholder="Escribe tu modelo (Ej: Samsung, Honor, Redmi...)" oninput="filterDevices()">
+    </div>
+    <div class="models-list" id="modelsList"></div>
 
-            <!-- MODO DPI -->
-            <div class="form-group">
-                <label>⚙️ Tipo de Ajuste de Pantalla</label>
-                <div class="options-grid-2">
-                    <div class="btn-option active" id="btnModeNoDpi" onclick="selectDpiMode('no_dpi')">
-                        SIN DPI / ORIGINAL
-                        <span class="subtext">Sensibilidad nativa perfecta</span>
-                    </div>
-                    <div class="btn-option" id="btnModeDpi" onclick="selectDpiMode('dpi')">
-                        CON DPI / CALIBRADO
-                        <span class="subtext">Respuesta táctil acelerada</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- NIVEL DE SENSIBILIDAD -->
-            <div class="form-group">
-                <label>🎯 Nivel de Sensibilidad Requerido</label>
-                <div class="options-grid">
-                    <div class="btn-option" id="btnSensiBaja" onclick="selectSensiLevel('baja')">BAJA<span class="subtext">Control Total (85-115)</span></div>
-                    <div class="btn-option" id="btnSensiMedia" onclick="selectSensiLevel('estandar')">MEDA / ESTÁNDAR<span class="subtext">Equilibrada (125-165)</span></div>
-                    <div class="btn-option active" id="btnSensiAlta" onclick="selectSensiLevel('alta')">ALTA VIP<span class="subtext">Todo Rojo Seco (175-200)</span></div>
-                </div>
-            </div>
-
-            <!-- TAMAÑO DE BOTÓN -->
-            <div class="form-group">
-                <label>🔘 Tamaño del Botón de Disparo</label>
-                <div class="options-grid">
-                    <div class="btn-option active" id="btnBtnPeque" onclick="selectButtonSize('pequeno')">PEQUEÑO<span class="subtext">38% - 44%</span></div>
-                    <div class="btn-option" id="btnBtnMedio" onclick="selectButtonSize('medio')">MEDIANO<span class="subtext">45% - 50%</span></div>
-                    <div class="btn-option" id="btnBtnGrande" onclick="selectButtonSize('grande')">GRANDE<span class="subtext">51% - 58%</span></div>
-                </div>
-            </div>
-
-            <button onclick="generateSensitivity()" class="btn-action btn-full">
-                <i data-lucide="zap"></i> GENERAR CALIBRACIÓN EXCLUSIVA VIP (1 CRÉDITO)
-            </button>
+    <!-- CONFIGURACIÓN -->
+    <div class="section-label"><i class="fa-solid fa-gear"></i> CONFIGURACIÓN DE DPI</div>
+    <div class="btn-grid-2">
+        <div class="opt-card active" id="dpiOff" onclick="selectDpi('off')">
+            <div class="opt-title">SIN DPI / ORIGINAL</div>
+            <div class="opt-sub">Ajuste Nativo Seguro</div>
         </div>
-
-        <!-- RESULTADOS DE SENSIBILIDAD Y CONFIGURACIÓN PASO A PASO -->
-        <div id="resultsSection" class="hidden">
-            <div class="card">
-                <div class="card-title"><i data-lucide="sliders"></i> Sensibilidad Anti-Temblor para <span id="resDeviceName" style="color:#fff; margin-left: 5px;"></span> (<span id="resLevelLabel" style="color:var(--neon-gold)">ALTA VIP</span>)</div>
-                
-                <div class="slider-card">
-                    <div class="slider-header"><span class="slider-label">General (Vista Libre)</span><span class="slider-val" id="valGeneral">196</span></div>
-                    <div class="slider-bar-bg"><div class="slider-bar-fill" id="barGeneral" style="width: 98%;"></div></div>
-                </div>
-                <div class="slider-card">
-                    <div class="slider-header"><span class="slider-label">Mira Punto Rojo</span><span class="slider-val" id="valRedDot">182</span></div>
-                    <div class="slider-bar-bg"><div class="slider-bar-fill" id="barRedDot" style="width: 91%;"></div></div>
-                </div>
-                <div class="slider-card">
-                    <div class="slider-header"><span class="slider-label">Mira 2x</span><span class="slider-val" id="valScope2x">168</span></div>
-                    <div class="slider-bar-bg"><div class="slider-bar-fill" id="barScope2x" style="width: 84%;"></div></div>
-                </div>
-                <div class="slider-card">
-                    <div class="slider-header"><span class="slider-label">Mira 4x</span><span class="slider-val" id="valScope4x">152</span></div>
-                    <div class="slider-bar-bg"><div class="slider-bar-fill" id="barScope4x" style="width: 76%;"></div></div>
-                </div>
-                <div class="slider-card">
-                    <div class="slider-header"><span class="slider-label">Mira AWM / Francotirador</span><span class="slider-val" id="valSniper">125</span></div>
-                    <div class="slider-bar-bg"><div class="slider-bar-fill" id="barSniper" style="width: 62%;"></div></div>
-                </div>
-                <div class="slider-card">
-                    <div class="slider-header"><span class="slider-label">Cámara 360°</span><span class="slider-val" id="valCam360">25</span></div>
-                    <div class="slider-bar-bg"><div class="slider-bar-fill" id="barCam360" style="width: 25%;"></div></div>
-                </div>
-
-                <div class="card-title" style="margin-top: 24px; color: var(--neon-gold);"><i data-lucide="settings"></i> Valores Directos de Sistema</div>
-                <div class="results-grid">
-                    <div class="param-card gold"><span class="param-title">Tamaño de Botón</span><div id="valButton" class="param-value">42%</div></div>
-                    <div class="param-card gold"><span class="param-title">DPI Recomendado</span><div id="valDpi" class="param-value">480 DPI</div></div>
-                    <div class="param-card gold"><span class="param-title">Velocidad Puntero</span><div id="valPointer" class="param-value">Máxima</div></div>
-                </div>
-            </div>
-
-            <!-- GUÍA EXCLUSIVA SEGÚN SISTEMA DETECTADO (SAMSUNG/ANDROID O IPHONE) -->
-            <div class="card">
-                <div class="card-title" style="color: var(--neon-green);"><i data-lucide="flame"></i> PASO A PASO: MODIFICACIÓN VIP DE TELÉFONO</div>
-
-                <!-- SECRETO DE JALADO -->
-                <div class="guide-step-box">
-                    <div class="guide-step-title"><i data-lucide="zap"></i> 1. Técnica de Levantado de Mira (Anti-Pecho / Anti-Temblor)</div>
-                    <div class="guide-step-text" id="techniqueDesc">
-                        Ejecuta el trazado en <strong>Letra "J Invertida"</strong>: presiona el botón con el pulgar realizando una curva milimétrica hacia abajo a la izquierda y desliza rápidamente hacia arriba en diagonal derecha. Esto despega la mira del pecho al primer disparo.
-                    </div>
-                    <span class="technique-badge">TRUCO VIP SECRETO</span>
-                </div>
-
-                <!-- CONFIGURACIÓN INTERNA DETALLADA -->
-                <div class="guide-step-box">
-                    <div class="guide-step-title"><i data-lucide="sliders"></i> 2. Ajustes Internos en los Menús del Teléfono</div>
-                    <div class="guide-step-text" id="systemConfigSteps">
-                        <!-- Se llena automáticamente con JS según sea Samsung/Android o iPhone -->
-                    </div>
-                </div>
-
-                <!-- BOTÓN DE DISPARO -->
-                <div class="guide-step-box">
-                    <div class="guide-step-title"><i data-lucide="target"></i> 3. Calibración Posicional del Botón</div>
-                    <div class="guide-step-text">
-                        Ajusta el tamaño en <strong id="guideButtonSize">42%</strong>. Sitúa el botón exactamente a <strong>4 milímetros del borde inferior</strong> de la pantalla. Esto le otorga a tu pulgar el máximo recorrido de arrastre para encajar tiro a la cabeza sin que la mira pase por encima de la cabeza.
-                    </div>
-                </div>
-
-            </div>
+        <div class="opt-card" id="dpiOn" onclick="selectDpi('on')">
+            <div class="opt-title">CON DPI CALIBRADO</div>
+            <div class="opt-sub">Respuesta Ultra Rápida</div>
         </div>
+    </div>
 
-        <!-- PANEL ADMIN -->
-        <div id="adminPanel" class="card admin-card hidden">
-            <div class="card-title" style="color: var(--neon-gold);"><i data-lucide="lock"></i> PANEL DE ADMINISTRADOR MAESTRO</div>
-            
-            <div class="form-group">
-                <label style="color: var(--neon-gold);">Generar Nuevo PIN para Cliente:</label>
-                <div class="pin-input-box">
-                    <input type="number" id="pinCreditsInput" placeholder="Cantidad de Créditos" value="1">
-                    <button class="btn-action" style="background: var(--neon-gold); color: #000;" onclick="createPin()">
-                        <i data-lucide="plus-circle"></i> Generar PIN
-                    </button>
-                </div>
-            </div>
-
-            <label style="font-size: 11px; font-weight: 800; color: var(--text-gray); text-transform: uppercase;">PINES ACTIVOS EN SISTEMA:</label>
-            <ul id="pinListDisplay" class="pin-list"></ul>
+    <div class="section-label"><i class="fa-solid fa-bullseye"></i> NIVEL DE SENSIBILIDAD</div>
+    <div class="btn-grid-3">
+        <div class="opt-card" id="lvlLow" onclick="selectLevel('baja')">
+            <div class="opt-title">BAJA</div>
+            <div class="opt-sub">Control Total</div>
         </div>
+        <div class="opt-card" id="lvlMed" onclick="selectLevel('media')">
+            <div class="opt-title">MEDIA</div>
+            <div class="opt-sub">Equilibrada</div>
+        </div>
+        <div class="opt-card active" id="lvlHigh" onclick="selectLevel('alta')">
+            <div class="opt-title">ALTA VIP</div>
+            <div class="opt-sub">Todo Rojo Seco</div>
+        </div>
+    </div>
 
-    </main>
+    <div class="section-label"><i class="fa-solid fa-circle-dot"></i> TAMAÑO BOTÓN DE DISPARO</div>
+    <div class="btn-grid-3">
+        <div class="opt-card active" id="btnS" onclick="selectBtnSize('small')">
+            <div class="opt-title">PEQUEÑO</div>
+            <div class="opt-sub">38% - 44%</div>
+        </div>
+        <div class="opt-card" id="btnM" onclick="selectBtnSize('medium')">
+            <div class="opt-title">MEDIANO</div>
+            <div class="opt-sub">45% - 50%</div>
+        </div>
+        <div class="opt-card" id="btnL" onclick="selectBtnSize('large')">
+            <div class="opt-title">GRANDE</div>
+            <div class="opt-sub">51% - 58%</div>
+        </div>
+    </div>
 
-    <footer>
-        <p>© 2026 AnonyX VIP System - Todos los derechos reservados.</p>
-        <div class="admin-trigger" onclick="accessAdmin()">Acceso Administrador</div>
-    </footer>
+    <button class="btn-generate" onclick="handleGenerate()"><i class="fa-solid fa-bolt"></i> GENERAR CALIBRACIÓN TODO ROJO</button>
 
-    <script>
-        lucide.createIcons();
-
-        const ADMIN_MASTER_KEY = "admin123";
-
-        const deviceDB = [
-            "Samsung Galaxy A07", "Samsung Galaxy A06", "Samsung Galaxy A05", "Samsung Galaxy A15", "Samsung Galaxy A25", "Samsung Galaxy A35", "Samsung Galaxy A55", "Samsung Galaxy S24 Ultra", "Samsung Galaxy S23 Ultra", "Samsung Galaxy S20 FE",
-            "iPhone 15 Pro Max", "iPhone 15 Plus", "iPhone 15 Pro", "iPhone 15", "iPhone 14 Pro Max", "iPhone 14 Pro", "iPhone 13 Pro Max", "iPhone 12", "iPhone 11", "iPhone XR",
-            "Redmi Note 13", "Redmi Note 13 Pro", "Redmi Note 12", "Redmi 13C", "POCO X6 Pro", "POCO X3 Pro",
-            "Honor Magic 6 Pro", "Honor X8b", "Honor X7c", "Tecno Spark 20 Pro", "Infinix Hot 40 Pro", "Motorola Moto G84"
-        ];
-
-        let currentDpiMode = 'no_dpi';
-        let currentSensiLevel = 'alta';
-        let currentButtonSize = 'pequeno';
-        let selectedDeviceName = "";
-
-        let userCredits = 1;
-        if (localStorage.getItem('anonyx_credits_v5') !== null) {
-            userCredits = parseInt(localStorage.getItem('anonyx_credits_v5'));
-        } else {
-            localStorage.setItem('anonyx_credits_v5', 1);
-        }
+    <!-- RESULTADOS Y GUÍA TÉCNICA -->
+    <div class="results-box" id="resBox">
+        <p style="color:var(--orange-vip); font-weight:bold; text-align:center; margin-bottom:10px; font-family:'Orbitron';" id="resTitle">CALIBRACIÓN 100% TODO ROJO</p>
         
-        let pinDatabase = JSON.parse(localStorage.getItem('anonyx_pins')) || {
-            "VIP-100": { credits: 1, used: false },
-            "VIP-500": { credits: 5, used: false }
-        };
+        <div class="res-row"><span>General</span><span id="vG">0</span></div>
+        <div class="res-bar"><div class="res-fill" id="bG"></div></div>
 
-        function updateCreditDisplay() {
-            document.getElementById('creditDisplay').innerText = `💎 ${userCredits} CRÉDITO${userCredits !== 1 ? 'S' : ''}`;
-            localStorage.setItem('anonyx_credits_v5', userCredits);
-            localStorage.setItem('anonyx_pins', JSON.stringify(pinDatabase));
+        <div class="res-row"><span>Mira de Punto Rojo</span><span id="vR">0</span></div>
+        <div class="res-bar"><div class="res-fill" id="bR"></div></div>
+
+        <div class="res-row"><span>Mira 2x</span><span id="v2">0</span></div>
+        <div class="res-bar"><div class="res-fill" id="b2"></div></div>
+
+        <div class="res-row"><span>Mira 4x</span><span id="v4">0</span></div>
+        <div class="res-bar"><div class="res-fill" id="b4"></div></div>
+
+        <div class="res-row"><span>Mira Francotirador</span><span id="vA">0</span></div>
+        <div class="res-bar"><div class="res-fill" id="bA"></div></div>
+
+        <div class="res-row"><span>Cámara 360°</span><span id="vC">0</span></div>
+        <div class="res-bar"><div class="res-fill" id="bC"></div></div>
+
+        <div style="text-align:center; background:#080a10; padding:10px; border-radius:10px; border:1px dashed var(--orange-vip); margin-top:10px;">
+            <span style="font-size:0.75rem; color:var(--text-sub);">BOTÓN DE DISPARO OPTIMIZADO</span>
+            <h2 style="color:var(--orange-vip); font-family:'Orbitron';" id="vB">0%</h2>
+        </div>
+
+        <div class="mod-guide" id="guideContainer"></div>
+    </div>
+
+    <div class="footer-info">
+        © 2026 AnonyX VIP System - Todos los derechos reservados.
+        <span class="admin-link" onclick="openAdminModal()">Acceso Administrador</span>
+    </div>
+
+</div>
+
+<!-- TIENDA DE DIAMANTES -->
+<div class="modal-overlay" id="storeModal">
+    <div class="modal-body">
+        <h3 style="color:var(--blue-cyan); font-family:'Orbitron'; text-align:center;"><i class="fa-solid fa-gem"></i> TIENDA DE DIAMANTES VIP</h3>
+        <p style="font-size:0.78rem; color:var(--text-sub); text-align:center; margin-top:4px;">Selecciona tu paquete e ingresa la Key proporcionada:</p>
+        
+        <div class="store-grid">
+            <div class="store-item">
+                <div class="store-diamonds">💎 100</div>
+                <div class="store-price-btn" onclick="startBuyProcess(100)">$1.08 USD</div>
+            </div>
+            <div class="store-item">
+                <div class="store-diamonds">💎 310</div>
+                <div class="store-price-btn" onclick="startBuyProcess(310)">$3.26 USD</div>
+            </div>
+            <div class="store-item">
+                <div class="store-diamonds">💎 520</div>
+                <div class="store-price-btn" onclick="startBuyProcess(520)">$5.08 USD</div>
+            </div>
+            <div class="store-item">
+                <div class="store-diamonds">💎 1060</div>
+                <div class="store-price-btn" onclick="startBuyProcess(1060)">$10.91 USD</div>
+            </div>
+            <div class="store-item">
+                <div class="store-diamonds">💎 2180</div>
+                <div class="store-price-btn" onclick="startBuyProcess(2180)">$21.09 USD</div>
+            </div>
+            <div class="store-item">
+                <div class="store-diamonds">💎 5600</div>
+                <div class="store-price-btn" onclick="startBuyProcess(5600)">$50.22 USD</div>
+            </div>
+        </div>
+
+        <button onclick="closeStore()" style="width:100%; padding:10px; background:#222; border:none; color:#fff; border-radius:8px; cursor:pointer;">CERRAR TIENDA</button>
+    </div>
+</div>
+
+<!-- MODAL INGRESO DE KEY DE PAQUETE -->
+<div class="modal-overlay" id="inputKeyModal" style="z-index:220;">
+    <div class="modal-body" style="text-align: center;">
+        <h3 style="color:var(--gold-vip); font-family:'Orbitron'; margin-bottom:6px;">PROCESO DE RECARGA</h3>
+        <p style="font-size:0.8rem; color:var(--text-sub);">Ingresa tu Key VIP para activar <span id="packAmountText" style="color:var(--blue-cyan); font-weight:bold;">100 💎</span>:</p>
+        
+        <input type="text" id="packKeyInput" placeholder="Pega tu Key VIP aquí..." style="width:100%; padding:12px; background:#000; border:1px solid var(--gold-vip); color:#fff; border-radius:8px; text-align:center; font-weight:bold; font-size:1rem; text-transform:uppercase; margin:15px 0;">
+        
+        <button onclick="verifyPackKey()" style="width:100%; padding:12px; background:var(--gold-vip); border:none; color:#000; font-weight:bold; border-radius:8px; cursor:pointer; font-family:'Orbitron';">ACTIVAR KEY</button>
+        <button onclick="closeInputKeyModal()" style="width:100%; padding:8px; background:transparent; border:none; color:var(--text-sub); margin-top:8px; cursor:pointer;">Cancelar</button>
+    </div>
+</div>
+
+<!-- MODAL COMPRA EXITOSA Y CANJE ÚNICO -->
+<div class="modal-overlay" id="successModal" style="z-index: 250;">
+    <div class="modal-body" style="border-color: var(--green-success); text-align: center;">
+        <i class="fa-solid fa-circle-check" style="font-size:3.5rem; color:var(--green-success); margin-bottom:8px;"></i>
+        <h3 style="color:var(--green-success); font-family:'Orbitron';">¡RECARGA EXITOSA!</h3>
+        
+        <div style="background:#080a10; padding:15px; border-radius:12px; border:1px solid var(--green-success); margin:15px 0;">
+            <i class="fa-solid fa-gem" style="font-size:2.5rem; color:var(--blue-cyan); margin-bottom:5px;"></i>
+            <h1 style="color:var(--blue-cyan); font-family:'Orbitron'; font-size:2.2rem; margin:2px 0;" id="successAmount">💎 100</h1>
+            <p style="color:var(--text-sub); font-size:0.75rem; margin-top:5px;">KEY CANJEADA (UN SOLO USO):</p>
+            <p style="color:var(--gold-vip); font-size:0.9rem; font-family:'Orbitron'; font-weight:bold;" id="successKeyDisplay">ANX-XXXXXX</p>
+        </div>
+
+        <button onclick="claimDiamonds()" style="width:100%; padding:14px; background:linear-gradient(90deg, #00ff66, #00b347); border:none; color:#000; font-family:'Orbitron'; font-weight:900; border-radius:10px; cursor:pointer; box-shadow: 0 0 15px rgba(0,255,102,0.4);"><i class="fa-solid fa-download"></i> CANJEAR Y QUEMAR CLAVE</button>
+    </div>
+</div>
+
+<!-- PANEL ADMINISTRADOR -->
+<div class="modal-overlay" id="adminModal" style="z-index: 300;">
+    <div class="modal-body" style="border-color: var(--orange-vip);">
+        <h3 style="color:var(--orange-vip); font-family:'Orbitron'; text-align:center; margin-bottom:12px;">PANEL ADMINISTRADOR</h3>
+        
+        <div id="adminAuth">
+            <input type="password" id="adminKey" placeholder="Clave Administrador" style="width:100%; padding:10px; background:#000; border:1px solid #333; color:#fff; border-radius:6px; margin-bottom:10px;">
+            <button onclick="loginAdmin()" style="width:100%; padding:10px; background:var(--orange-vip); border:none; color:#fff; font-weight:700; border-radius:6px; cursor:pointer;">ENTRAR</button>
+        </div>
+
+        <div id="adminControls" style="display:none;">
+            <p style="font-size:0.8rem; color:var(--gold-vip); font-weight:bold; text-align:center;">GENERAR KEY DE UN SOLO USO</p>
+            <div class="admin-btn-grid">
+                <button class="admin-gen-btn" onclick="adminQuickGen(100)">💎 100</button>
+                <button class="admin-gen-btn" onclick="adminQuickGen(310)">💎 310</button>
+                <button class="admin-gen-btn" onclick="adminQuickGen(520)">💎 520</button>
+                <button class="admin-gen-btn" onclick="adminQuickGen(1060)">💎 1060</button>
+                <button class="admin-gen-btn" onclick="adminQuickGen(2180)">💎 2180</button>
+                <button class="admin-gen-btn" onclick="adminQuickGen(5600)">💎 5600</button>
+            </div>
+
+            <div id="generatedOutput" style="display:none; background:#080a10; padding:10px; border-radius:8px; border:1px solid var(--gold-vip); margin-top:12px; text-align:center;">
+                <p style="font-size:0.7rem; color:var(--text-sub);">KEY GENERADA:</p>
+                <h3 style="color:var(--gold-vip); font-family:'Orbitron';" id="outputKeyText">ANX-XXXXXX</h3>
+                <button onclick="copyAdminKey()" style="margin-top:6px; padding:6px 12px; background:var(--gold-vip); border:none; color:#000; font-weight:bold; border-radius:6px; cursor:pointer; font-size:0.75rem;"><i class="fa-solid fa-copy"></i> COPIAR KEY</button>
+            </div>
+
+            <div id="activePinsList" style="font-size:0.72rem; color:var(--text-sub); background:#000; padding:8px; border-radius:6px; max-height:90px; overflow-y:auto; margin-top:10px;"></div>
+        </div>
+
+        <button onclick="closeAdminModal()" style="width:100%; padding:8px; background:#222; border:none; color:#fff; border-radius:6px; margin-top:10px; cursor:pointer;">CERRAR</button>
+    </div>
+</div>
+
+<script>
+    const allDevices = [
+        "Samsung Galaxy A07", "Samsung Galaxy A13", "Samsung Galaxy A14", "Samsung Galaxy A15", "Samsung Galaxy A23", "Samsung Galaxy A24", "Samsung Galaxy A25", "Samsung Galaxy A34", "Samsung Galaxy A54", "Samsung Galaxy S21 Ultra", "Samsung Galaxy S22 Ultra", "Samsung Galaxy S23 Ultra", "Samsung Galaxy S24 Ultra",
+        "Honor X7a", "Honor X8a", "Honor X9b", "Honor 70", "Honor 90", "Honor Magic 5 Pro",
+        "Xiaomi Redmi Note 10", "Xiaomi Redmi Note 11", "Xiaomi Redmi Note 12", "Xiaomi Redmi Note 13 Pro", "Xiaomi Poco X3 Pro", "Xiaomi Poco X5 Pro", "Xiaomi Poco X6 Pro",
+        "Motorola Moto G22", "Motorola Moto G54", "Motorola Moto G84", "Motorola Edge 40",
+        "Infinix Hot 30", "Infinix Note 30 Pro", "Infinix GT 10 Pro", "Realme C55", "Realme 11 Pro",
+        "iPhone 8 Plus", "iPhone X", "iPhone XR", "iPhone 11", "iPhone 12", "iPhone 13 Pro Max", "iPhone 14 Pro Max", "iPhone 15 Pro Max"
+    ];
+
+    let credits = 5;
+    document.getElementById('userCredits').innerText = credits;
+
+    let selectedMode = 'normal';
+    let modeCost = 5;
+    let selectedDevice = null;
+    let selectedDpi = 'off';
+    let selectedLevel = 'alta';
+    let selectedBtnSize = 'small';
+
+    let systemPins = JSON.parse(localStorage.getItem('anonyx_pins')) || {};
+    let currentSelectedPack = 0;
+    let pendingClaimAmount = 0;
+    let pendingClaimKey = '';
+
+    function filterDevices() {
+        const query = document.getElementById('deviceSearch').value.toLowerCase().trim();
+        const list = document.getElementById('modelsList');
+        list.innerHTML = '';
+
+        if(query === '') { list.style.display = 'none'; return; }
+
+        const filtered = allDevices.filter(d => d.toLowerCase().includes(query));
+
+        if(filtered.length > 0) {
+            list.style.display = 'block';
+            filtered.forEach(dev => {
+                let div = document.createElement('div');
+                div.className = 'model-item';
+                div.innerText = dev;
+                div.onclick = function() {
+                    selectedDevice = dev;
+                    document.getElementById('detectedDev').innerText = dev;
+                    document.getElementById('detectedDev').style.color = "var(--blue-cyan)";
+                    document.getElementById('deviceSearch').value = dev;
+                    list.style.display = 'none';
+                };
+                list.appendChild(div);
+            });
+        } else { list.style.display = 'none'; }
+    }
+
+    function selectMode(m, cost) {
+        selectedMode = m;
+        modeCost = cost;
+        document.getElementById('tabNorm').className = m === 'normal' ? 'mode-btn active' : 'mode-btn';
+        document.getElementById('tabPrem').className = m === 'premium' ? 'mode-btn active' : 'mode-btn';
+        document.getElementById('tabInsp').className = m === 'inspirada' ? 'mode-btn active' : 'mode-btn';
+    }
+
+    function openStore() { document.getElementById('storeModal').style.display = 'flex'; }
+    function closeStore() { document.getElementById('storeModal').style.display = 'none'; }
+
+    function startBuyProcess(amount) {
+        currentSelectedPack = amount;
+        document.getElementById('packAmountText').innerText = amount + " 💎";
+        document.getElementById('packKeyInput').value = '';
+        document.getElementById('inputKeyModal').style.display = 'flex';
+    }
+
+    function closeInputKeyModal() { document.getElementById('inputKeyModal').style.display = 'none'; }
+
+    function verifyPackKey() {
+        let key = document.getElementById('packKeyInput').value.trim().toUpperCase();
+        
+        if(!key) { alert("❌ Ingresa la Key VIP proporcionada."); return; }
+
+        if(systemPins[key]) {
+            pendingClaimAmount = systemPins[key];
+            pendingClaimKey = key;
+            document.getElementById('successAmount').innerText = "💎 " + pendingClaimAmount;
+            document.getElementById('successKeyDisplay').innerText = pendingClaimKey;
+            
+            closeInputKeyModal();
+            closeStore();
+            document.getElementById('successModal').style.display = 'flex';
+        } else {
+            alert("❌ Clave incorrecta o ya utilizada. No se puede reconectar ni reutilizar.");
+        }
+    }
+
+    function claimDiamonds() {
+        credits += pendingClaimAmount;
+        document.getElementById('userCredits').innerText = credits;
+
+        delete systemPins[pendingClaimKey];
+        localStorage.setItem('anonyx_pins', JSON.stringify(systemPins));
+
+        navigator.clipboard.writeText(pendingClaimKey);
+
+        document.getElementById('successModal').style.display = 'none';
+        alert(`🎉 ¡RECARGA EXITOSA! Se añadieron ${pendingClaimAmount} Diamantes. La clave fue destruida en el servidor.`);
+    }
+
+    function handleGenerate() {
+        if(!selectedDevice) {
+            alert("⚠️ Por favor selecciona primero la marca y modelo exacto de tu celular.");
+            document.getElementById('deviceSearch').focus();
+            return;
         }
 
-        // DETECCIÓN INTELIGENTE DE VERDAD (SAMSUNG / ANDROID / IPHONE)
-        function realSmartDetect() {
-            const ua = navigator.userAgent;
-            const screenRatio = window.screen.width / window.screen.height;
-            let detected = "Samsung Galaxy A07"; 
-
-            // Algoritmo que analiza procesador, táctil y agente de usuario
-            if (/iphone|ipad|ipod/i.test(ua) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1)) {
-                detected = "iPhone 15 Pro Max";
-            } else if (/samsung/i.test(ua) || (navigator.maxTouchPoints >= 5 && !/iphone/i.test(ua))) {
-                // Detecta marcas Android populares por respuesta táctil y agente
-                if (/redmi|xiaomi/i.test(ua)) detected = "Redmi Note 13 Pro";
-                else if (/poco/i.test(ua)) detected = "POCO X6 Pro";
-                else if (/honor/i.test(ua)) detected = "Honor X8b";
-                else if (/tecno/i.test(ua)) detected = "Tecno Spark 20 Pro";
-                else if (/infinix/i.test(ua)) detected = "Infinix Hot 40 Pro";
-                else if (/moto/i.test(ua)) detected = "Motorola Moto G84";
-                else detected = "Samsung Galaxy A07"; // Detección por defecto optimizada
-            }
-
-            selectedDeviceName = detected;
-            document.getElementById('autoDetectText').innerText = `Dispositivo Calibrado Detectado: ${detected}`;
-            document.getElementById('deviceSearchInput').value = detected;
+        if(credits < modeCost) {
+            alert(`❌ Saldo insuficiente. El modo ${selectedMode.toUpperCase()} cuesta ${modeCost} 💎. Tu saldo actual: ${credits} 💎.`);
+            openStore();
+            return;
         }
 
-        function onSearchDevice() {
-            const inputVal = document.getElementById('deviceSearchInput').value.trim().toLowerCase();
-            const dropdown = document.getElementById('deviceDropdown');
-            dropdown.innerHTML = "";
+        credits -= modeCost;
+        document.getElementById('userCredits').innerText = credits;
 
-            let matches = deviceDB.filter(d => d.toLowerCase().includes(inputVal));
+        // Semilla basada en el nombre del celular
+        let seed = 0;
+        for(let i=0; i<selectedDevice.length; i++) seed += selectedDevice.charCodeAt(i);
 
-            if (matches.length === 0 && inputVal.length > 0) {
-                matches = [document.getElementById('deviceSearchInput').value];
-            }
+        // Sensibilidades calibradas pro
+        let g = 194 + (seed % 6);
+        let r = 197 + (seed % 4);
+        let m2 = 189 + (seed % 9);
+        let m4 = 194 + (seed % 6);
+        let awm = Math.floor(45 + (seed % 35));
+        let cam360 = 100;
 
-            if (matches.length > 0) {
-                dropdown.classList.remove('hidden');
-                matches.forEach(item => {
-                    const div = document.createElement('div');
-                    div.className = "device-item";
-                    div.innerHTML = `<i data-lucide="smartphone" style="width:14px; color:var(--neon-orange)"></i> ${item}`;
-                    div.onclick = function() {
-                        document.getElementById('deviceSearchInput').value = item;
-                        selectedDeviceName = item;
-                        dropdown.classList.add('hidden');
-                    };
-                    dropdown.appendChild(div);
-                });
-                lucide.createIcons();
-            } else {
-                dropdown.classList.add('hidden');
-            }
+        // Botón optimizado
+        let bSize = selectedBtnSize === 'small' ? "41%" : (selectedBtnSize === 'medium' ? "47%" : "52%");
+
+        document.getElementById('vG').innerText = g;
+        document.getElementById('vR').innerText = r;
+        document.getElementById('v2').innerText = m2;
+        document.getElementById('v4').innerText = m4;
+        document.getElementById('vA').innerText = awm;
+        document.getElementById('vC').innerText = cam360;
+        document.getElementById('vB').innerText = bSize;
+
+        document.getElementById('bG').style.width = '100%';
+        document.getElementById('bR').style.width = '100%';
+        document.getElementById('b2').style.width = '100%';
+        document.getElementById('b4').style.width = '100%';
+        document.getElementById('bA').style.width = (awm / 200 * 100) + '%';
+        document.getElementById('bC').style.width = (cam360 / 200 * 100) + '%';
+
+        // DPI exacto segun dispositivo
+        let exactDpiValue = 540 + (seed % 180);
+        let nativeDpiTip = selectedDevice.includes("iPhone") ? "Sensibilidad de Puntero al 100% (iOS Nativo)" : "Escala de Animación en 0.5x (Aceleración Nativa)";
+
+        let guideHTML = '';
+
+        if(selectedMode === 'normal') {
+            document.getElementById('resTitle').innerText = "CALIBRACIÓN BÁSICA DE JUEGO";
+            guideHTML = `
+                <h4><i class="fa-solid fa-sliders"></i> AJUSTES BÁSICOS PARA ${selectedDevice.toUpperCase()}</h4>
+                <div class="mod-step">1. <span>Sensibilidad Juego:</span> Ingresa los números exactos indicados arriba.</div>
+                <div class="mod-step">2. <span>DPI Seleccionado:</span> ${selectedDpi === 'on' ? exactDpiValue + " DPI" : nativeDpiTip}</div>
+                <div class="mod-step">3. <span>Botón de Disparo:</span> Ubícalo a un nivel medio-bajo de tu pantalla.</div>
+            `;
+        } else if(selectedMode === 'premium') {
+            document.getElementById('resTitle').innerText = "⭐ MODIFICACIÓN PREMIUM SISTEMA Y DPI ⭐";
+            guideHTML = `
+                <h4><i class="fa-solid fa-crown"></i> CALIBRACIÓN PRO SISTEMA (${selectedDevice.toUpperCase()})</h4>
+                
+                <div class="guide-section-title"><i class="fa-solid fa-mobile"></i> 1. CONFIGURACIÓN EXACTA DE PANTALLA Y DPI</div>
+                <div class="highlight-box">
+                    <b>DPI PERFECTO RECOMENDADO:</b> ${selectedDpi === 'on' ? exactDpiValue + " DPI (Procesado para evitar errores)" : "SIN DPI -> " + nativeDpiTip}<br>
+                    <b>Escala de Animaciones:</b> Transición y Ventana en 0.5x
+                </div>
+
+                <div class="guide-section-title"><i class="fa-solid fa-gears"></i> 2. MODIFICACIONES DE ACCESIBILIDAD</div>
+                <div class="mod-step">• <span>Velocidad de Puntero:</span> Ponlo en el Máximo menos 1 muesca.</div>
+                <div class="mod-step">• <span>Supresor (Clic al parar puntero):</span> Activado en <span>600 ms</span>.</div>
+                <div class="mod-step">• <span>Tiempo de Pulsación Prolongada:</span> Corto (0.5 segundos).</div>
+
+                <div class="guide-section-title"><i class="fa-solid fa-crosshair"></i> 3. TÉCNICA DE ALZADA DE MIRA</div>
+                <div class="mod-step">• <span>Distancia Media/Larga:</span> Alza el botón en línea recta con velocidad constante.</div>
+                <div class="mod-step">• <span>Distancia Corta:</span> Alza en forma de "J" suave hacia la derecha para enganchar el primer tiro en la cabeza.</div>
+            `;
+        } else {
+            // MODO INSPIRADA 1000 DIAMANTES (ULTRA VIP COMPLETO)
+            document.getElementById('resTitle').innerText = "⚡ CALIBRACIÓN TOP GLOBAL INSPIRADA (100% TODO ROJO) ⚡";
+            guideHTML = `
+                <h4><i class="fa-solid fa-bolt"></i> REGEDIT Y GUÍA PASO A PASO ULTIMATE (${selectedDevice.toUpperCase()})</h4>
+                
+                <div class="guide-section-title"><i class="fa-solid fa-sliders"></i> 1. DPI Y ACELERACIÓN PERFECTA</div>
+                <div class="highlight-box">
+                    <b>DPI MODIFICADO EXACTO:</b> ${selectedDpi === 'on' ? exactDpiValue + " DPI (Calibración exacta de pantalla)" : "SIN DPI -> Configura 'Ancho Mínimo' de fábrica y activa 'Aceleración por Hardware' en Opciones de Desarrollador"}<br>
+                    <b>Tasa de Refresco:</b> Pon la pantalla a 90Hz / 120Hz si tu equipo lo permite.
+                </div>
+
+                <div class="guide-section-title"><i class="fa-solid fa-microchip"></i> 2. INTERFAZ Y REACCION TÁCTIL VIP</div>
+                <div class="mod-step">1. <span>Velocidad de Puntero / Ratón:</span> 100% al Máximo.</div>
+                <div class="mod-step">2. <span>Supresor Anti-Temblor:</span> Activado exacto en <span>300 ms</span> (Evita que la mira pase por encima del casco).</div>
+                <div class="mod-step">3. <span>Retraso al Mantener Presionado:</span> Ultra Corto (0.2 segundos).</div>
+                <div class="mod-step">4. <span>Sensibilidad Táctil (Game Turbo/Game Space):</span> Respuesta de toque al 100% y zona anti-toque accidental desactivada.</div>
+
+                <div class="guide-section-title"><i class="fa-solid fa-fire"></i> 3. GUÍA COMPLETA: CÓMO LEVANTAR MIRA Y NO FALLAR TIROS</div>
+                <div class="mod-step">🔹 <span>Posición del Botón:</span> Colócalo pegado exactamente a 2 milímetros del borde inferior de la pantalla. Esto te da más espacio de recorrido para alzar el dedo.</div>
+                <div class="mod-step">🔹 <span>Disparo a Corta Distancia (Escopeta / SMG):</span> Realiza la alzada en "J" INVERTIDA de manera explosiva. Da el jalón rápido y suelta.</div>
+                <div class="mod-step">🔹 <span>Disparo a Media / Larga Distancia (AR):</span> No des jalones bruscos. Desliza el dedo suavemente en línea recta vertical hacia arriba permitiendo que la mira de punto rojo fije la cabeza.</div>
+                <div class="mod-step">🔹 <span>Enemigo en Movimiento Lateral:</span> Alza el botón siguiendo diagonalmente la trayectoria de la cabeza del enemigo. ¡Jamás alces recto si corre de lado!</div>
+            `;
         }
 
-        document.addEventListener('click', function(e) {
-            if (!e.target.closest('.form-group')) {
-                document.getElementById('deviceDropdown').classList.add('hidden');
-            }
-        });
+        document.getElementById('guideContainer').innerHTML = guideHTML;
+        const resBox = document.getElementById('resBox');
+        resBox.style.display = 'block';
+        resBox.scrollIntoView({ behavior: 'smooth' });
+    }
 
-        function selectDpiMode(mode) {
-            currentDpiMode = mode;
-            document.getElementById('btnModeNoDpi').classList.toggle('active', mode === 'no_dpi');
-            document.getElementById('btnModeDpi').classList.toggle('active', mode === 'dpi');
-        }
+    function selectDpi(val) {
+        selectedDpi = val;
+        document.getElementById('dpiOff').className = val === 'off' ? 'opt-card active' : 'opt-card';
+        document.getElementById('dpiOn').className = val === 'on' ? 'opt-card active' : 'opt-card';
+    }
 
-        function selectSensiLevel(level) {
-            currentSensiLevel = level;
-            document.getElementById('btnSensiBaja').classList.toggle('active', level === 'baja');
-            document.getElementById('btnSensiMedia').classList.toggle('active', level === 'estandar');
-            document.getElementById('btnSensiAlta').classList.toggle('active', level === 'alta');
-        }
+    function selectLevel(lvl) {
+        selectedLevel = lvl;
+        document.getElementById('lvlLow').className = lvl === 'baja' ? 'opt-card active' : 'opt-card';
+        document.getElementById('lvlMed').className = lvl === 'media' ? 'opt-card active' : 'opt-card';
+        document.getElementById('lvlHigh').className = lvl === 'alta' ? 'opt-card active' : 'opt-card';
+    }
 
-        function selectButtonSize(size) {
-            currentButtonSize = size;
-            document.getElementById('btnBtnPeque').classList.toggle('active', size === 'pequeno');
-            document.getElementById('btnBtnMedio').classList.toggle('active', size === 'medio');
-            document.getElementById('btnBtnGrande').classList.toggle('active', size === 'grande');
-        }
+    function selectBtnSize(sz) {
+        selectedBtnSize = sz;
+        document.getElementById('btnS').className = sz === 'small' ? 'opt-card active' : 'opt-card';
+        document.getElementById('btnM').className = sz === 'medium' ? 'opt-card active' : 'opt-card';
+        document.getElementById('btnL').className = sz === 'large' ? 'opt-card active' : 'opt-card';
+    }
 
-        function redeemPin() {
-            const input = document.getElementById('pinInput').value.trim().toUpperCase();
-            if (!input) {
-                alert("Por favor ingresa un PIN.");
-                return;
-            }
+    function openAdminModal() { document.getElementById('adminModal').style.display = 'flex'; }
+    function closeAdminModal() { document.getElementById('adminModal').style.display = 'none'; }
 
-            if (input === ADMIN_MASTER_KEY.toUpperCase()) {
-                document.getElementById('adminPanel').classList.remove('hidden');
-                document.getElementById('pinInput').value = "";
-                renderAdminPINS();
-                alert("🔓 Acceso de Administrador Concedido.");
-                window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
-                return;
-            }
+    function loginAdmin() {
+        if(document.getElementById('adminKey').value === "ADMIN2026") {
+            document.getElementById('adminAuth').style.display = 'none';
+            document.getElementById('adminControls').style.display = 'block';
+            updatePinsList();
+        } else { alert("❌ Clave de Administrador Incorrecta."); }
+    }
 
-            if (pinDatabase[input]) {
-                if (pinDatabase[input].used) {
-                    alert("❌ Este PIN ya ha sido utilizado.");
-                } else {
-                    const addedCredits = pinDatabase[input].credits;
-                    userCredits += addedCredits;
-                    pinDatabase[input].used = true;
-                    
-                    updateCreditDisplay();
-                    document.getElementById('pinInput').value = "";
-                    alert(`✅ ¡PIN CANJEADO CON ÉXITO!\nCréditos agregados: ${addedCredits}`);
-                    renderAdminPINS();
-                }
-            } else {
-                alert("❌ El PIN ingresado es incorrecto.");
-            }
-        }
+    function adminQuickGen(amount) {
+        const randomCode = "ANX-" + Math.random().toString(36).substring(2, 8).toUpperCase();
+        systemPins[randomCode] = amount;
+        localStorage.setItem('anonyx_pins', JSON.stringify(systemPins));
 
-        function generateSensitivity() {
-            if (userCredits < 1) {
-                alert("❌ No tienes créditos. Canjea un PIN para continuar.");
-                return;
-            }
+        document.getElementById('outputKeyText').innerText = randomCode;
+        document.getElementById('generatedOutput').style.display = 'block';
+        updatePinsList();
+    }
 
-            const deviceInput = document.getElementById('deviceSearchInput').value.trim();
-            if (!deviceInput) {
-                alert("Selecciona o escribe el modelo de tu teléfono.");
-                return;
-            }
+    function copyAdminKey() {
+        const key = document.getElementById('outputKeyText').innerText;
+        navigator.clipboard.writeText(key);
+        alert(`📋 KEY Copiada: ${key}`);
+    }
 
-            userCredits -= 1;
-            updateCreditDisplay();
+    function updatePinsList() {
+        document.getElementById('activePinsList').innerHTML = '<b>KEYs Activas en Sistema:</b><br>' + Object.entries(systemPins).map(([k,v]) => `${k} ➔ ${v} 💎`).join('<br>');
+    }
+</script>
 
-            // SENSIBILIDADES EXACTAS SEGÚN EL NIVEL
-            let gen, redDot, scope2, scope4, sniper, cam;
-
-            if (currentSensiLevel === 'alta') {
-                gen = Math.floor(Math.random() * 10) + 190;   // 190-199
-                redDot = Math.floor(Math.random() * 10) + 175; // 175-184
-                scope2 = Math.floor(Math.random() * 10) + 160; // 160-169
-                scope4 = Math.floor(Math.random() * 10) + 145; // 145-154
-                sniper = Math.floor(Math.random() * 15) + 115; // 115-129
-                cam = Math.floor(Math.random() * 15) + 20;     // 20-34
-                document.getElementById('resLevelLabel').innerText = "ALTA VIP (TODO ROJO)";
-            } else if (currentSensiLevel === 'estandar') {
-                gen = Math.floor(Math.random() * 15) + 140;   
-                redDot = Math.floor(Math.random() * 15) + 130; 
-                scope2 = Math.floor(Math.random() * 15) + 120; 
-                scope4 = Math.floor(Math.random() * 15) + 110; 
-                sniper = Math.floor(Math.random() * 15) + 85; 
-                cam = Math.floor(Math.random() * 15) + 40;
-                document.getElementById('resLevelLabel').innerText = "MEDA / EQUILIBRADA";
-            } else {
-                gen = Math.floor(Math.random() * 15) + 95;    
-                redDot = Math.floor(Math.random() * 15) + 88;  
-                scope2 = Math.floor(Math.random() * 15) + 82;  
-                scope4 = Math.floor(Math.random() * 15) + 75;  
-                sniper = Math.floor(Math.random() * 15) + 50;  
-                cam = Math.floor(Math.random() * 15) + 60;
-                document.getElementById('resLevelLabel').innerText = "BAJA (CONTROL TOTAL)";
-            }
-
-            document.getElementById('valGeneral').innerText = gen;
-            document.getElementById('barGeneral').style.width = Math.min(100, (gen / 200) * 100) + "%";
-
-            document.getElementById('valRedDot').innerText = redDot;
-            document.getElementById('barRedDot').style.width = Math.min(100, (redDot / 200) * 100) + "%";
-
-            document.getElementById('valScope2x').innerText = scope2;
-            document.getElementById('barScope2x').style.width = Math.min(100, (scope2 / 200) * 100) + "%";
-
-            document.getElementById('valScope4x').innerText = scope4;
-            document.getElementById('barScope4x').style.width = Math.min(100, (scope4 / 200) * 100) + "%";
-
-            document.getElementById('valSniper').innerText = sniper;
-            document.getElementById('barSniper').style.width = Math.min(100, (sniper / 200) * 100) + "%";
-
-            document.getElementById('valCam360').innerText = cam;
-            document.getElementById('barCam360').style.width = Math.min(100, (cam / 200) * 100) + "%";
-
-            // BOTÓN Y DPI
-            let btnVal = "42%";
-            if (currentButtonSize === 'pequeno') btnVal = (Math.floor(Math.random() * 6) + 38) + "%";
-            if (currentButtonSize === 'medio') btnVal = (Math.floor(Math.random() * 5) + 45) + "%";
-            if (currentButtonSize === 'grande') btnVal = (Math.floor(Math.random() * 7) + 51) + "%";
-
-            document.getElementById('valButton').innerText = btnVal;
-            document.getElementById('guideButtonSize').innerText = btnVal;
-
-            let dpiCalculated = "Desactivado";
-            if (currentDpiMode === 'dpi') {
-                dpiCalculated = (Math.floor(Math.random() * 50) + 450) + " DPI";
-            }
-            document.getElementById('valDpi').innerText = dpiCalculated;
-
-            // CONFIGURACIÓN PASO A PASO EXCLUSIVA SEGÚN SI ES IPHONE O SAMSUNG/ANDROID
-            const isIphone = deviceInput.toLowerCase().includes("iphone");
-            const stepsContainer = document.getElementById('systemConfigSteps');
-
-            if (isIphone) {
-                stepsContainer.innerHTML = `
-                    • <strong>Ajustes > Accesibilidad > Tocar > Control por Botón:</strong><br>
-                    - Cursor Deslizante: Configurar en <strong>"Individual"</strong> a velocidad <strong>120 (Máximo)</strong>.<br>
-                    • <strong>Accesibilidad > AssistiveTouch:</strong><br>
-                    - Sensibilidad de Seguimiento: Súbelo al <strong>100% (Icono de la Tortuga a la Liebre al máximo)</strong>.<br>
-                    - Acciones Personalizadas: Tocar dos veces > Ninguno.<br>
-                    • <strong>Pantalla y Brillo:</strong> Tamaño del Texto en el mínimo y Zoom de Pantalla en <strong>"Texto más grande" / Aumentado</strong> para forzar mayor tasa táctil.<br>
-                    • <strong>Adaptaciones Táctiles:</strong> Duración de Presión Desactivada.
-                `;
-            } else {
-                // MODIFICACIÓN COMPLETA PASO A PASO PARA SAMSUNG / ANDROID VIP
-                stepsContainer.innerHTML = `
-                    • <strong>Ajustes > Administración General > Idioma y Entrada:</strong><br>
-                    - Velocidad del Puntero: Súbela al <strong>100% (Rápido)</strong>.<br>
-                    - Velocidad de Desplazamiento de la Rueda: Colócala en <strong>Máximo</strong>.<br>
-                    • <strong>Ajustes > Accesibilidad > Interacción y Destreza:</strong><br>
-                    - Retraso de Pulsar y Mantener Presionado: Ajustar en <strong>Personalizado (0.2 segundos)</strong>.<br>
-                    - Tiempo de Permanencia (Clic al parar el puntero): Activar y poner en <strong>200 ms (Mínimo)</strong>.<br>
-                    • <strong>Ajustes > Opciones de Desarrollador:</strong><br>
-                    - Ancho Menor (DPI): Configurar exactamente en <strong>${dpiCalculated}</strong>.<br>
-                    - Escalas de Animación (Ventana, Transición, Duración): Ponlas todas en <strong>0.5x o Desactivadas</strong> para quitar retraso táctil.<br>
-                    - Activar <strong>Forzar MSaa 4x</strong> para mayor fluidez.
-                `;
-            }
-
-            document.getElementById('resDeviceName').innerText = deviceInput;
-            document.getElementById('resultsSection').classList.remove('hidden');
-            window.scrollTo({ top: document.getElementById('resultsSection').offsetTop - 20, behavior: 'smooth' });
-        }
-
-        function accessAdmin() {
-            const pass = prompt("Ingresa la Clave Maestra de Administrador:");
-            if (pass === ADMIN_MASTER_KEY) {
-                document.getElementById('adminPanel').classList.remove('hidden');
-                renderAdminPINS();
-                window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
-            } else if (pass !== null) {
-                alert("Clave incorrecta.");
-            }
-        }
-
-        function createPin() {
-            const credits = parseInt(document.getElementById('pinCreditsInput').value);
-            if (isNaN(credits) || credits < 1) {
-                alert("Ingresa una cantidad válida de créditos.");
-                return;
-            }
-
-            const randomCode = "VIP-" + Math.floor(1000 + Math.random() * 9000);
-            pinDatabase[randomCode] = { credits: credits, used: false };
-
-            updateCreditDisplay();
-            renderAdminPINS();
-            alert(`🎉 ¡Nuevo PIN Generado!\nCódigo: ${randomCode}\nCréditos: ${credits}`);
-        }
-
-        function renderAdminPINS() {
-            const list = document.getElementById('pinListDisplay');
-            list.innerHTML = "";
-
-            for (const [code, info] of Object.entries(pinDatabase)) {
-                const li = document.createElement('li');
-                li.className = "pin-item";
-                li.innerHTML = `
-                    <div>
-                        <span class="pin-code">${code}</span> — 💎 ${info.credits} Crédito(s)
-                    </div>
-                    <span style="color: ${info.used ? '#ff4444' : 'var(--neon-green)'}; font-weight: bold;">
-                        ${info.used ? 'USADO' : 'DISPONIBLE'}
-                    </span>
-                `;
-                list.appendChild(li);
-            }
-        }
-
-        window.addEventListener('DOMContentLoaded', () => {
-            updateCreditDisplay();
-            realSmartDetect();
-        });
-    </script>
 </body>
 </html>
+
